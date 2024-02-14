@@ -4,21 +4,15 @@ document.addEventListener("DOMContentLoaded", function() {
     var btnDropdown = document.getElementById('btnDropdown');
     var navDropdown = document.getElementById('navDropdown');
     var navHome = document.getElementById('navHome');
-    var navCategory = document.getElementById('navCategory');
-    var navPrice = document.getElementById('navPrice');
     var navAbout = document.getElementById('navAbout');
+    var navRatings = document.getElementById('navRatings');
+    var navServices = document.getElementById('navServices');
     var navContact = document.getElementById('navContact');
-    var sideCatList = document.getElementById('side-category-list');
-    var sidePriceList = document.getElementById('side-price-list');
+    var catList = document.getElementById('c-list');
+    var priceList = document.getElementById('p-list');
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
 
-    navCategory.onclick = function(){
-        sideCatList.classList.toggle('side-ul-focus');
-    }
-    navPrice.onclick = function(){
-        sidePriceList.classList.toggle('side-ul-focus');
-    }
 
     btnDropdown.onclick = function()
     {   

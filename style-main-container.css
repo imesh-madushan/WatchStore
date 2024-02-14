@@ -7,35 +7,33 @@
 .main-container .left-bar{
     background-color: rgb(255, 255, 255);
     height: 600px;
-    width: 210px;
+    width: 180px;
     border-radius: 10px;
     grid-column: 1;
     position: fixed;
     align-items: center;
     justify-content: center;
     display: grid;
-}
-
-.main-container .left-bar ul{
-    font-family: sans-serif;
-    font-size: 18px;
-    padding-left: 0;
-    margin-left: 25px;
-    margin-bottom: 30px;
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    
 }
 .main-container .left-bar #side-category-list, 
 .main-container .left-bar #side-price-list
 {
+    font-family: sans-serif;
+    font-size: 14px;
     margin-top: 20px;
-    /* background-color: rgba(220, 220, 220, 0.598);
-    -webkit-backdrop-filter: blur(1px); */
-    /* backdrop-filter: blur(50px); */
-    /* border: 0.3px solid rgba(0, 0, 0, 0.3); */
+    margin-left: 50px;
     border-radius: 15px;
     width: 200px;
     height: auto;
+}
+.main-container .left-bar ul{
+    padding-left: 0;
+    margin-top: -12px;
+    margin-left: 8px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
 }
 .main-container .left-bar ul li{
     list-style-type: none;
@@ -46,13 +44,15 @@
 }
 .main-container .left-bar span{
     display: flex;
-    margin-top: -50px;
-    margin-bottom: -50px;
-    background-color: rgb(0, 0, 0);
+    margin-left: 30px;
+    margin-top: -80px;
+    margin-bottom: -70px;
+    background-color: rgba(0, 0, 0, 0.5);
     height: 1.6px;
     border-radius: 20px;
     width: 80%;
     justify-self: center;
+
 }
 
 .main-container #products-container{
@@ -63,7 +63,7 @@
     border-radius: 10px;
     height: auto;
     width: auto;
-    margin-left: 60px;
+    margin-left: 50px;
     margin-right: 35px;
     margin-top: 20px;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid with items of at least 200px wide */
@@ -163,11 +163,9 @@
     transition: transform 0.06s ease-in-out;
     z-index: 10;
     box-shadow: 0px 0px 70px 5px rgba(0, 0, 0, 0.7);
-    padding: 0px;
-    height: min-content;
     align-self: center;
-    .container{
-        height: 85%;
+    .item .container{
+        
     }
 }
 
