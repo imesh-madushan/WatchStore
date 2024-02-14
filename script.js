@@ -3,8 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
     var navbar = document.getElementById('nav');
     var btnDropdown = document.getElementById('btnDropdown');
     var navDropdown = document.getElementById('navDropdown');
+    var navHome = document.getElementById('navHome');
+    var navCategory = document.getElementById('navCategory');
+    var navPrice = document.getElementById('navPrice');
+    var navAbout = document.getElementById('navAbout');
+    var navContact = document.getElementById('navContact');
+    var sideCatList = document.getElementById('side-category-list');
+    var sidePriceList = document.getElementById('side-price-list');
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
+
+    navCategory.onclick = function(){
+        sideCatList.classList.toggle('side-ul-focus');
+    }
+    navPrice.onclick = function(){
+        sidePriceList.classList.toggle('side-ul-focus');
+    }
 
     btnDropdown.onclick = function()
     {   
@@ -30,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
-    // When window resize, dropDown bar will be removed if enabled when width < 950
+    // When resizing the window
     window.addEventListener('resize', function(){
         // If window width is greater than 950 or less than 660, dropdown bar will be hidden
         if(window.innerWidth >= 1080 || window.innerWidth < 660)
@@ -74,4 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+
 });
