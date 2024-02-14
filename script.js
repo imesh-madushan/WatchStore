@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var navDropdown = document.getElementById('navDropdown');
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
-    
+
     btnDropdown.onclick = function()
     {   
         btnDropdownClicked = true;
@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // When window resize, dropDown bar will be removed if enabled when width < 950
     window.addEventListener('resize', function(){
-        // If window width is greater than 950
-        if(window.innerWidth >= 950)
+        // If window width is greater than 950 or less than 660, dropdown bar will be hidden
+        if(window.innerWidth >= 1080 || window.innerWidth < 660)
         {
             // If dropdown-menu was opened, it will be hidden temporarily
             if(navDropdownOpened == true)
@@ -47,6 +47,30 @@ document.addEventListener("DOMContentLoaded", function() {
             if(navDropdownOpened == true)
             {
                 navDropdown.classList.replace('hide', 'show');
+            }
+        }
+
+        // Get the current viewport of item1 and item2
+        var rect1 = document.getElementById('item1').getBoundingClientRect();
+        var rect2 = document.getElementById('item2').getBoundingClientRect();
+        var distance = rect1.right - rect2.left;
+        var plusDistance = distance - 40;
+        var alltext = document.getElementsByClassName('text');
+
+        // If the distance between right of item1 and left of item2 is greater than 70 and less than 90, the padding-right of item-text will be increased
+        if(rect1.right - rect2.left > 40 && rect1.right - rect2.left < 90)
+        {
+            //document.getElementById('item-text').style.paddingRight = plusDistance + "px";
+            for(var all = 0; all < alltext.length; all++)
+            {
+                alltext[all].style.paddingRight = plusDistance + "px";
+            }
+        }
+        else
+        {
+            for(var all = 0; all < alltext.length; all++)
+            {
+                alltext[all].style.paddingRight = "10px";
             }
         }
     });

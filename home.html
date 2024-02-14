@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch Store</title>
+    <link rel="stylesheet" href="style-main-container.css">
+    <link rel="stylesheet" href="style-nav.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Dosis:wght@200..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav id="nav">
@@ -19,7 +24,7 @@
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Category</a></li>
-                <li><a href="">Cart</a></li>
+                <li><a href="">Price</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
@@ -28,17 +33,141 @@
             <button id="btnLogin">Login</button>
             <button id="btnRegister">Register</button>
         </div>
-        <svg id="btnDropdown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        <div id="btnDropdownArea">
+            <svg id="btnDropdown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </div>
     </nav>
 
     <div id="navDropdown">
         <ul>
             <li><a href="">Home</a></li>
             <li><a href="">Category</a></li>
-            <li><a href="">Cart</a></li>
+            <li><a href="">Price</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
         </ul>
     </div>
+
+    <section class="main-container">
+        <div class="left-bar">
+            <ul class="list">
+                <ul class="category">Category
+                    <li style="margin-top: 20px;"><input type="checkbox" name="cat1"> Category 2 </li>
+                    <li><input type="checkbox" name="cat1"> Category 2 </li>
+                    <li><input type="checkbox" name="cat1"> Category 2 </li>
+                    <li><input type="checkbox" name="cat1"> Category 2 </li>
+                </ul>
+                <span></span>
+                <ul class="price">Price Range
+                    <li style="margin-top: 20px;"><input type="checkbox" name="price1">Above 5000 LKR</li>
+                    <li><input type="checkbox" name="price1">Above 5000 LKR</li>
+                    <li><input type="checkbox" name="price1">Above 5000 LKR</li>
+                    <li><input type="checkbox" name="price1">Above 5000 LKR</li>
+                    <li><input type="checkbox" name="price1">Above 5000 LKR</li>
+                </ul>
+            </ul>
+        </div>
+        <div id="products-container">
+            <div class="item" id="item1">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I001.jpg" alt="">
+                    </div>
+                    <div class="text" id="item-text">
+                        <p>W2946 OMEGA De  Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item2">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I004.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGADe Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item3">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I003.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGA De Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item4">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I002.png" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGA De Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item4">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I004.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGA De Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item4">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I004.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGA De Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item4">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I004.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGA De Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="item" id="item4">
+                <div class="container">
+                    <div class="image">
+                        <img src="products/I004.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>W2946 OMEGA De Ville Quartz Case size 19mm for Woman Watch UsedOpens in a new window or tab
+                            Pre-Owned</p>
+                        <h2>3000 LKR</h2>
+                    </div>
+                </div>
+            </div>
+            
+          
+        </div>
+    </section>
+
 </body>
 </html>
