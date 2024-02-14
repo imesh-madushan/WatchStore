@@ -111,10 +111,16 @@
     display: flex;
 }
 .item:hover{
-    transform: scale3d(1.05, 1.05, 1.05);
-    transition: transform 0.07s ease-in-out;
+    transform: scale3d(1.17, 1.17, 1.17);
+    transition: transform 0.18s ease-in-out;
     z-index: 10;
     box-shadow: 0px 0px 70px 5px rgba(0, 0, 0, 0.7);
+    padding: 0px;
+    height: min-content;
+    align-self: center;
+    .container{
+        height: 85%;
+    }
 }
 /* .container .image :hover{
     transform: scale(1.054);
