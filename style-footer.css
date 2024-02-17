@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+/* -----------------Footer----------------- */
+#footer{
+    display: grid;
+    width: 100%;
+    margin-top: 40px;
+    height: auto;
+    grid-template-rows: (4, 1fr);
+    grid-gap: 45px;
+}
+/* -----------------About----------------- */
+#about{
+    display: grid;
+    width: 80%;
+    background-color: #ffffffe6;
+    box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
+    border-radius: 20px;
+    grid-template-columns: 30% 70%;
+    justify-self: center;
+}
+#about img{
+    grid-column: 1;
+    display: flex;
+    align-self: center;
+    height: auto;
+    width: calc(80%);
+}
+#about .text{
+    align-self: center;
+    grid-column: 2;
+    display: flexbox;
+    height: auto;
+    width: 80%;
+    grid-template-rows: 40% 60%;
+}
+#about .text h2{
+    grid-row: 1;
+    font-size: calc(25px + 2vw);
+    font-family: "Josefin Sans";
+    margin-left: 10px;
+    margin-top: 7%;
+    margin-bottom: 13px;
+    align-self: center;
+}
+#about .text p{
+    grid-row: 2;
+    font-size: calc(11px + 0.6vw);
+    font-family: "Quicksand";
+    margin-left: 10px;
+    margin-top: 3%;
+    margin-bottom: 8%;
+}
+
+@media screen and (max-width: 1187px) {
+    #about img {
+        margin-top: 10%; /* Decreased margin-top for smaller screens */
+        align-self: normal;
+    }
+}
+
+/* ---------------Services---------------- */
+#services{
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background-color: #ffffffe6;
+    box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
+    border-radius: 20px;
+    justify-self: center;
+}
+#services .text{
+    display: grid;
+    height: auto;
+    width: 90%;
+    grid-template-rows: 20% 80%;
+    justify-content: center;
+}
+
+#services .text h2{
+    grid-row: 1;
+    font-size: calc(25px + 2vw);
+    font-family: "Josefin Sans";
+    margin-left: 10px;
+    margin-top: 4%;
+    margin-bottom: 13px;
+    justify-self: center;
+    align-self: center;
+}
+#services .text ul{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 6%;
+    height: auto;
+    width: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    justify-content: center;
+    background-color: rebeccapurple;
+}
+#services .text ul li{
+    list-style-type: none;
+} 
+#services .text ul li h3{
+    font-size: calc(13px + 0.3vw);
+    font-family: "Gabarito";
+    margin-left: 3%;
+    margin-top: 1%;
+    margin-bottom: 9%;
+    text-align: left;
+}  
+#services .text ul li p{
+    font-size: calc(5px + 0.6vw);
+    font-family: "Quicksand";
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 8%;
+}
+ 
+
+/* --------------Feedbacks---------------- */
+#ratings{
+    grid-row: 3;
+    display: grid;
+    width: 80%;
+    background-color: #ffffffe6;
+    box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
+    border-radius: 20px;
+    justify-self: center;
+    grid-template-rows: 30% 70%;
+}
+#ratings h2{
+    grid-row: 1;
+    font-size: calc(15px + 1vw);
+    font-family: "Josefin Sans";
+    margin-left: 10px;
+    margin-top: 4%;
+    margin-bottom: 13px;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+#ratings #rating-slider{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5%;
+    height: auto;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+    background-color: rebeccapurple;
+}
