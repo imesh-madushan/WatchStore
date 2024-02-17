@@ -14,9 +14,25 @@ document.addEventListener("DOMContentLoaded", function() {
     var leftBar = document.getElementById('left-bar');
     var catList = document.getElementById('c-list');
     var priceList = document.getElementById('p-list');
+
+    var footer = document.getElementById('footer');
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
 
+    function hideLeftBar(){
+        if(window.innerWidth <= 400)
+        {
+            leftBar.style.display = 'none';
+            prodContainer.style.marginLeft = "-100px";
+        }
+    }
+    function showLeftBar(){
+        if(window.innerWidth <= 400)
+        {
+            leftBar.style.display = 'grid';
+            prodContainer.style.marginLeft = "-8%";
+        }
+    }
     // Event listener to listen every click
     document.addEventListener('click', function(event) {
         var clickedElement = event.target;
@@ -26,46 +42,33 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             if(navDropdown.classList.contains('show') == true)
             {
+                showLeftBar();
                 navDropdown.classList.replace('show', 'hide');
                 navDropdownOpened = false;
             }
         }
         else
-        {
-            
-
+        {          
             btnDropdownClicked = true;
 
             // If dropdown bar is not shown mode or hide mode, dropdown bar will be shown
             if(navDropdown.classList.contains('show') == false && navDropdown.classList.contains('hide') == false)
             {
-                if(window.innerWidth <= 400)
-                {
-                    leftBar.style.display = 'none';
-                    prodContainer.style.marginLeft = "-100px";
-                }
+                hideLeftBar();
                 navDropdown.classList.add('show');
                 navDropdownOpened = true;
             }
             // If dropdown bar is shown mode, replace it with hide mode
             else if(navDropdown.classList.contains('show') == true)
             {
-                if(window.innerWidth <= 400)
-                {
-                    leftBar.style.display = 'grid';
-                    prodContainer.style.marginLeft = "-8%";
-                }
+                showLeftBar();
                 navDropdown.classList.replace('show', 'hide');
                 navDropdownOpened = false;
             }
             //if dropdown bar is hide mode, replace it with show mode
             else if(navDropdown.classList.contains('hide') == true)
             {
-                if(window.innerWidth <= 400)
-                {
-                    leftBar.style.display = 'none';
-                    prodContainer.style.marginLeft = "-100px";
-                }
+                hideLeftBar();
                 navDropdown.classList.replace('hide', 'show');
                 navDropdownOpened = true;
             }
@@ -117,5 +120,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // When scrolling the windo, the left bar will be fixed
+    window.addEventListener('scroll', function(){
+        if (footer.getBoundingClientRect().top <= window.innerHeight)
+        {
+            leftBar.style.position = 'absolute';
+            leftBar.style.alignSelf = 'flex-end'; 
+        }
+        else
+        {
+            leftBar.style.alignSelf = 'revert';
+            leftBar.style.position = 'fixed';
+        }
+    });
+    
 
 });
