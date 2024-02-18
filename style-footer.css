@@ -9,6 +9,7 @@
     grid-gap: 45px;
     overflow: hidden;
     position: relative;
+    border-radius: 20px;
 }
 #footer #promo-video{
     position: absolute;
@@ -28,15 +29,17 @@
     display: grid;
     width: 85%;
     height: auto;
-    background-color: #ffffffe6;
     box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
-    border-radius: 20px;
+    border-radius: 30px;
     justify-self: center;
     grid-template-rows: 30% 70%;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     padding-right: 0;
     padding-left: 0;
     margin-top: 40px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
+    background-color: rgba(255, 255, 255,  0.54);
 }
 #ratings h2{
     grid-row: 1;
@@ -106,8 +109,8 @@
     grid-gap: 0%;
     height: auto;
     width: 100%;
-    background-color: #ffffffe6;
-    box-shadow: 0px 0px 10px 1px rgba(79, 76, 76, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 0px 10px 1px rgba(79, 76, 76, 0.4);
     border-radius: 20px;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -173,11 +176,13 @@
     grid-row: 2;
     display: grid;
     width: 85%;
-    background-color: #ffffffe6;
     box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
-    border-radius: 20px;
+    border-radius: 30px;
     grid-template-columns: 30% 70%;
     justify-self: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255,  0.54);
 }
 #about img{
     grid-column: 1;
@@ -226,10 +231,12 @@
     align-items: center;
     justify-content: center;
     width: 85%;
-    background-color: #ffffffe6;
     box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
-    border-radius: 20px;
+    border-radius: 30px;
     justify-self: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255,  0.54);
 }
 #services .text{
     display: grid;
@@ -288,14 +295,16 @@
     grid-row: 4;
     display: grid;
     width: 85%;
-    height: 80%;
-    background-color: #ffffffe6;
+    height: 85%;
     box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
-    border-radius: 20px;
+    border-radius: 30px;
     grid-auto-flow: row;
     grid-auto-rows: 15% 85%;
     justify-self: center;
     margin-bottom: 1.5%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.54);
 }
 
 #contact h2{
@@ -303,7 +312,7 @@
     font-size: calc(25px + 2vw);
     font-family: "Josefin Sans";
     margin-left: 10px;
-    margin-top: 4%;
+    margin-top: 6%;
     margin-bottom: 13px;
     align-self: center;
     justify-self: center;
@@ -328,14 +337,13 @@
     margin-top: 10%;
     width: 100%;
     height: 80%;
-    background-color: rebeccapurple;
 }
 #contact #contact-method #method-other h4{
     margin-top: 9%;
     margin-bottom: 5%;
     text-align: center;
 }
-#contact #contact-method form{
+#contact #contact-method #method-email{
     grid-column: 2;
     border-radius: 25px;
     display: grid;
@@ -351,23 +359,23 @@
     align-items: center;
     justify-items: center;
     gap: 6%;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(1px);
 }
-#contact #contact-method form input{
+#contact #contact-method #method-email input{
     border-radius: 20px;
     border: none;
     height: 80%;
     width: 90%;
     border: 3px solid rgba(2, 6, 23, 0.701);
     padding-left: 7px;
+    background-color: rgba(255, 254, 254, 0);
 }
-#contact #contact-method form input[type="text"]::placeholder,
-#contact #contact-method form input[type="email"]::placeholder,
-#contact #contact-method form textarea::placeholder {
+#contact #contact-method #method-email input[type="text"]::placeholder,
+#contact #contact-method #method-email input[type="email"]::placeholder,
+#contact #contact-method #method-email textarea::placeholder {
     font-size: calc(12px + 0.3vw);
+    color: rgba(0, 0, 0, 1);
 }
-#contact #contact-method form textarea{
+#contact #contact-method #method-email textarea{
     border-radius: 20px;
     border: none;
     height: 150%;
@@ -377,8 +385,10 @@
     padding-left: 10px;
     padding-top: 10px;
     font-family:Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 254, 254, 0);
+    resize: none;
 }
-#contact #contact-method form button{
+#contact #contact-method #method-email button{
     border-radius: 20px;
     border: none;
     height: 100%;
@@ -390,9 +400,3 @@
 }
 
 
-@media screen and (max-width: 1187px) {
-    #contact img {
-        margin-top: 10%; /* Decreased margin-top for smaller screens */
-        align-self: normal;
-    }
-}

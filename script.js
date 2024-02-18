@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var navRatings = document.getElementById('navRatings');
     var navServices = document.getElementById('navServices');
     var navContact = document.getElementById('navContact');
+
     var mainContainer = document.getElementById('main-container');
     var prodContainer = document.getElementById('products-container');
     var leftBar = document.getElementById('left-bar');
@@ -22,9 +23,18 @@ document.addEventListener("DOMContentLoaded", function() {
     var btnFeedbackPrev = document.getElementById('feedback-prev');
     var btnFeedbackNext = document.getElementById('feedback-next');
    
+    var about = document.getElementById('about');
+    var ratings = document.getElementById('ratings');
+    var services = document.getElementById('services');
+    var contact = document.getElementById('contact');
+
+
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
 
+    var windowScrolledAmountY = 0;
+
+    // Hide the left bar FOR MOBILE VIEW
     function hideLeftBar(){
         if(window.innerWidth <= 400)
         {
@@ -39,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
             prodContainer.style.marginLeft = "-8%";
         }
     }
+
+    
+
     // Event listener to listen every click
     document.addEventListener('click', function(event) {
         var clickedElement = event.target;
@@ -81,7 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // When resizing the window
+
+
+    // When resizing the window resize navbar and dropdown menu
     window.addEventListener('resize', function(){
         // If window width is greater than 950 or less than 660, dropdown bar will be hidden
         if(window.innerWidth >= 1080 || window.innerWidth < 660)
@@ -125,12 +140,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // When scrolling the window, the left bar will be fixed
+
+
+    // When scrolling the window, the left bar will be fixed and will scroled up
     window.addEventListener('scroll', function(){
         var navBottom = nav.getBoundingClientRect().bottom;
         var promoVideoTop = promoVideo.getBoundingClientRect().top;
         var footerTop = footer.getBoundingClientRect().top;
         var footerBottom = footer.getBoundingClientRect().bottom;
+
         if (footerTop <= window.innerHeight)
         {
             leftBar.style.position = 'absolute';
@@ -144,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (navBottom >= footerTop)
         {
-            console.log("crossed");
+            console.log("footer top crossed with nav botton");
             promoVideo.style.marginTop = (navBottom - footerTop) + "px";
             promoVideo.style.position = 'absolute';
         }
@@ -154,6 +172,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
+
+
+
+    // when click on prev and next button, the slider will be moved
     function slider()
     {
         // Set the scroller to the beginning
@@ -163,10 +185,11 @@ document.addEventListener("DOMContentLoaded", function() {
         var courselWidth = coursel.getBoundingClientRect().width;
         var scrollAmount = parseFloat(courselWidth);
         btnFeedbackNext.onclick = function(){
-            console.log("clicked next");
+            console.log("clicked next button");
             coursel.scrollLeft += scrollAmount; 
         }
         btnFeedbackPrev.onclick = function(){
+            console.log("clicked prev button");
             coursel.scrollLeft -= scrollAmount;        
         }
 
@@ -174,6 +197,50 @@ document.addEventListener("DOMContentLoaded", function() {
     slider();
     window.addEventListener('resize', slider);
     window.addEventListener('load', slider);
+
+
+
+
+    // Navigate to the About when click on the navbar
+    navAbout.onclick = function(){
+            var scrollAmount = about.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+            console.log("ScrollAmountTo About "+scrollAmount);
+            scrollBy({
+                top: scrollAmount,
+                behavior: "smooth"
+            });
+    }
+   
+    // Navigate to the Ratings when click on the navbar
+    navRatings.onclick = function(){
+        var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        console.log("ScrollAmountTo Ratings "+scrollAmount);
+        scrollBy({
+            top: scrollAmount,
+            behavior: "smooth"
+        });
+    }
+
+    // Navigate to the Services when click on the navbar
+    navServices.onclick = function(){
+        var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        console.log("ScrollAmountTo About "+scrollAmount);
+        scrollBy({
+            top: scrollAmount,
+            behavior: "smooth"
+        });
+    }   
+
+    // Navigate to the Contact when click on the navbar
+    navContact.onclick = function(){
+        var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        console.log("ScrollAmountTo About "+scrollAmount);
+        scrollBy({
+            top: scrollAmount,
+            behavior: "smooth"
+        });
+    }
+
 
     
 });
