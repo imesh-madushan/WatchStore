@@ -360,8 +360,13 @@
     height: 80%;
     width: 90%;
     border: 3px solid rgba(2, 6, 23, 0.701);
+    padding-left: 7px;
 }
-#contact #contact-method form input::pla
+#contact #contact-method form input[type="text"]::placeholder,
+#contact #contact-method form input[type="email"]::placeholder,
+#contact #contact-method form textarea::placeholder {
+    font-size: calc(12px + 0.3vw);
+}
 #contact #contact-method form textarea{
     border-radius: 20px;
     border: none;
@@ -369,6 +374,9 @@
     margin-top: 10%;
     width: 90%;
     border: 3px solid rgba(2, 6, 23, 0.701);
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 #contact #contact-method form button{
     border-radius: 20px;
