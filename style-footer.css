@@ -57,7 +57,7 @@
     text-align: center;
     justify-self: center;
     line-height: 50px;
-    z-index: 100000;
+    z-index: 101;
     box-shadow: 0px 0px 13px 2px rgba(79, 76, 76, 0.7);
 }
 #ratings #wrapper #feedback-prev{
@@ -99,7 +99,7 @@
     margin-bottom: 4px;
     margin-left: 0;
     margin-right: 0;
-    z-index: 10100;
+    z-index: 100;
 }
 
 #ratings #wrapper #coursel .card .customer{
