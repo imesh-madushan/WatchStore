@@ -140,7 +140,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function slider()
     {
-        // slider effect for feddback section
+        // Set the scroller to the beginning
+        coursel.scrollLeft = 0;
+
+        // Slider effect for feddback section
         var courselWidth = coursel.getBoundingClientRect().width;
         var scrollAmount = parseFloat(courselWidth);
         btnFeedbackNext.onclick = function(){
