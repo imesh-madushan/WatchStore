@@ -38,8 +38,8 @@
     padding-left: 0;
     margin-top: 40px;
     -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(18px);
-    background-color: rgba(255, 255, 255,  0.54);
+    backdrop-filter: blur(13px);
+    background-color: rgba(255, 255, 255,  0.6);
 }
 #ratings h2{
     grid-row: 1;
@@ -76,6 +76,7 @@
     line-height: 50px;
     z-index: 101;
     box-shadow: 0px 0px 13px 2px rgba(79, 76, 76, 0.7);
+    cursor: pointer;
 }
 #ratings #wrapper #feedback-prev{
     grid-column: 1;
@@ -109,7 +110,7 @@
     grid-gap: 0%;
     height: auto;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255 , 0.64);
     box-shadow: 0px 0px 10px 1px rgba(79, 76, 76, 0.4);
     border-radius: 20px;
     margin-top: 4px;
@@ -331,17 +332,24 @@
 
 #contact #contact-method #method-other{
     grid-column: 1;
-    font-size: calc(12px + 0.4vw);
     font-family: "Quicksand";
     margin-left: 10px;
-    margin-top: 10%;
+    margin-top: 5%;
     width: 100%;
-    height: 80%;
+    height: auto;
 }
 #contact #contact-method #method-other h4{
-    margin-top: 9%;
-    margin-bottom: 5%;
     text-align: center;
+    font-size: calc(5px + 1.4vw);
+    height: 8%;
+    align-self: center;
+    cursor: pointer;
+}
+#contact #contact-method #method-other h4 i{
+    color: rgba(0, 0, 0, 0.8);
+    justify-self: center;
+    font-size: calc(8px + 1.4vw);
+    margin-right: 3%;
 }
 #contact #contact-method #method-email{
     grid-column: 2;
@@ -375,11 +383,17 @@
     font-size: calc(12px + 0.3vw);
     color: rgba(0, 0, 0, 1);
 }
+#contact #contact-method #method-email input[type="text"]:focus,
+#contact #contact-method #method-email input[type="email"]:focus,
+#contact #contact-method #method-email textarea:focus {
+    outline: 1px solid rgba(8, 4, 43, 0.804);
+    box-shadow: 0px 0px 10px 1px rgba(8, 4, 43, 0.804);
+}
 #contact #contact-method #method-email textarea{
     border-radius: 20px;
     border: none;
     height: 150%;
-    margin-top: 10%;
+    margin-top: 15%;
     width: 90%;
     border: 3px solid rgba(2, 6, 23, 0.701);
     padding-left: 10px;
@@ -389,14 +403,18 @@
     resize: none;
 }
 #contact #contact-method #method-email button{
-    border-radius: 20px;
+    border-radius: 25px;
     border: none;
-    height: 100%;
-    margin-top: 20%;
+    height: 90%;
+    margin-top: 30%;
     width: 35%;
     justify-self: center;
     color: white;
     background-color: rgba(2, 6, 23, 0.701);
+    cursor: pointer;
 }
-
+#contact #contact-method #method-email button:hover{
+    box-shadow: 0px 0px 10px 1px rgba(8, 4, 43, 0.804);
+    scale: 1.05;
+}
 

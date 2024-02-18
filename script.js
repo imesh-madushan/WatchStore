@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Navigate to the About when click on the navbar
     navAbout.onclick = function(){
-            var scrollAmount = about.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+            var scrollAmount = about.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
             console.log("ScrollAmountTo About "+scrollAmount);
             scrollBy({
                 top: scrollAmount,
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
    
     // Navigate to the Ratings when click on the navbar
     navRatings.onclick = function(){
-        var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
         console.log("ScrollAmountTo Ratings "+scrollAmount);
         scrollBy({
             top: scrollAmount,
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Navigate to the Services when click on the navbar
     navServices.onclick = function(){
-        var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
         console.log("ScrollAmountTo About "+scrollAmount);
         scrollBy({
             top: scrollAmount,
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Navigate to the Contact when click on the navbar
     navContact.onclick = function(){
-        var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
         console.log("ScrollAmountTo About "+scrollAmount);
         scrollBy({
             top: scrollAmount,

@@ -22,6 +22,7 @@ nav {
 nav a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 .navBegin {
@@ -78,6 +79,7 @@ nav a {
     font-size: 15px;
     margin-left: 25px;
     border: 0.3px solid rgba(1, 1, 1, 0.4);
+    cursor: pointer;
 }
 
 
@@ -184,6 +186,7 @@ nav #btnDropdownArea #btnDropdown {
     transition: all 0.3s ease-in-out;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    scale: 1.08;
 }
 
 /* Dropdown Mouse Enter and Leaves Animation */
@@ -210,6 +213,7 @@ nav #btnDropdownArea #btnDropdown {
 .navBegin:hover {
     transform: scale(1.05);
 }
+
 
 /*-----------------Resposnsive design----------------*/
 /* according to the width adjusment */
