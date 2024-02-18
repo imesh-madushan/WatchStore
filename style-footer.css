@@ -126,7 +126,7 @@
 #ratings{
     grid-row: 3;
     display: grid;
-    width: 85%;
+    width: 80%;
     height: auto;
     background-color: #ffffffe6;
     box-shadow: 0px 0px 60px 20px rgba(79, 76, 76, 0.221);
@@ -148,7 +148,7 @@
     text-align: center;
 }
 
-#ratings #out-line{
+#ratings #wrapper{
     display: grid;
     grid-row: 2;
     height: auto;
@@ -158,52 +158,64 @@
     padding: 3%;
 }
 
-#ratings #out-line i{
+#ratings #wrapper i{
     font-size: calc(13px + 1.4vw);
     color: white;
     align-self: center;  
-    justify-self: center;
     background-color: rgba(3, 2, 8, 0.756);
     border-radius: 50%;
     height: 47px;
     width: 47px;
     text-align: center;
+    justify-self: center;
     line-height: 50px;
-    z-index: 100;
+    z-index: 100000;
+    box-shadow: 0px 0px 13px 2px rgba(79, 76, 76, 0.7);
 }
-#ratings #out-line #prev{
+#ratings #wrapper #feedback-prev{
     grid-column: 1;
 }
-#ratings #out-line #next{
+#ratings #wrapper #feedback-next{
     grid-column: 3;
 }
-#ratings #out-line #wrapper{
+#ratings #wrapper #coursel{
     grid-column: 2;
+    overflow-wrap: break-word;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc(30%);
-    grid-gap: 2.5%;
+    grid-auto-columns: calc(94%/3);
+    grid-gap: 3%;
     height: fit-content;
-    width: auto;
-    align-content: center;
+    width: 100%;
     border-radius: 20px;
     overflow: hidden;
-    transform: translateX(-1.8%);
+    scroll-behavior: smooth;
+    justify-self: center;
+    scrollbar-width: 0;
+    scroll-snap-type: x mandatory;
+    inner-g: inset 0px 0px 200px 10px rgba(183, 139, 139, 0.8);
+    padding-left: 1.5%;
+    padding-right: 1.5%;
 }
 
-#ratings #out-line #wrapper .feedback{
+
+#ratings #wrapper #coursel .card{
     display: grid;
     grid-auto-flow: row;
     grid-gap: 0%;
     height: auto;
     width: 100%;
     background-color: #ffffffe6;
-    box-shadow: 0px 0px 10px 4px rgba(79, 76, 76, 0.3);
+    box-shadow: 0px 0px 10px 1px rgba(79, 76, 76, 0.3);
     border-radius: 20px;
-    margin: 14%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 0;
+    margin-right: 0;
+    z-index: 10100;
 }
 
-#ratings #out-line #wrapper .feedback .customer{
+#ratings #wrapper #coursel .card .customer{
     display: grid;
     grid-auto-columns: 5rem 65%;
     height: auto;
@@ -212,13 +224,13 @@
     margin-top: 3%;
     padding-bottom: 2%;
 }
-#ratings #out-line #wrapper .feedback .customer .image{
+#ratings #wrapper #coursel .card .customer .image{
     grid-column: 1;
     height: auto;
     width: 4rem;
     border-radius: 38px;
 }
-#ratings #out-line #wrapper .feedback .customer .name{
+#ratings #wrapper #coursel .card .customer .name{
     grid-column: 2;
     font-size: calc(14px + 0.4vw);
     width: 100%;
@@ -226,7 +238,7 @@
     margin-top: 10%;
     margin-left: 1%;
 }
-#ratings #out-line #wrapper .feedback .msg{
+#ratings #wrapper #coursel .card .msg{
     font-size: calc(10px + 0.5vw);
     width: 100%;
     height: 3.6rem;
@@ -237,19 +249,18 @@
     margin-top: calc(9% - 1vw);
 }
 @media screen and (max-width: 900px) {
-    #ratings #out-line #wrapper{
-        grid-auto-columns: calc(44.8%);
+    #ratings #wrapper #coursel{
+        grid-auto-columns: calc(48.5%);
     }
-    #ratings #out-line i{
+    #ratings #wrapper i{
         margin-top: 45%;
     }
 }
 @media screen and (max-width: 600px) {
-    #ratings #out-line #wrapper{
-        grid-auto-columns: calc(85%);
-        gap: 30px;
+    #ratings #wrapper #coursel{
+        grid-auto-columns: calc(100%);
     }
-    #ratings #out-line #wrapper .feedback .customer .name{
+    #ratings #wrapper #coursel .card .customer .name{
         font-size: calc(16px + 0.4vw);
     }
   

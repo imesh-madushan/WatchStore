@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
     var priceList = document.getElementById('p-list');
 
     var footer = document.getElementById('footer');
+    var coursel = document.getElementById('coursel');
+    var cards = document.getElementsByClassName('card');
+    var btnFeedbackPrev = document.getElementById('feedback-prev');
+    var btnFeedbackNext = document.getElementById('feedback-next');
+   
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
 
@@ -105,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // If the distance between right of item1 and left of item2 is greater than 70 and less than 90, the padding-right of item-text will be increased
         if(rect1.right - rect2.left > 40 && rect1.right - rect2.left < 90)
         {
-            //document.getElementById('item-text').style.paddingRight = plusDistance + "px";
             for(var all = 0; all < alltext.length; all++)
             {
                 alltext[all].style.paddingRight = plusDistance + "px";
@@ -120,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // When scrolling the windo, the left bar will be fixed
+    // When scrolling the window, the left bar will be fixed
     window.addEventListener('scroll', function(){
         if (footer.getBoundingClientRect().top <= window.innerHeight)
         {
@@ -134,5 +138,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
+    function slider()
+    {
+        // slider effect for feddback section
+        var courselWidth = coursel.getBoundingClientRect().width;
+        var scrollAmount = parseFloat(courselWidth);
+        btnFeedbackNext.onclick = function(){
+            console.log("clicked next");
+            coursel.scrollLeft += scrollAmount; 
+        }
+        btnFeedbackPrev.onclick = function(){
+            coursel.scrollLeft -= scrollAmount;        
+        }
 
+    }
+    slider();
+    window.addEventListener('resize', slider);
+    window.addEventListener('load', slider);
+
+    
 });
