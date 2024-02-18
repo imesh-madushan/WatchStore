@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var priceList = document.getElementById('p-list');
 
     var footer = document.getElementById('footer');
+    var promoVideo = document.getElementById('promo-video');
     var coursel = document.getElementById('coursel');
     var cards = document.getElementsByClassName('card');
     var btnFeedbackPrev = document.getElementById('feedback-prev');
@@ -126,7 +127,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // When scrolling the window, the left bar will be fixed
     window.addEventListener('scroll', function(){
-        if (footer.getBoundingClientRect().top <= window.innerHeight)
+        var navBottom = nav.getBoundingClientRect().bottom;
+        var promoVideoTop = promoVideo.getBoundingClientRect().top;
+        var footerTop = footer.getBoundingClientRect().top;
+        var footerBottom = footer.getBoundingClientRect().bottom;
+        if (footerTop <= window.innerHeight)
         {
             leftBar.style.position = 'absolute';
             leftBar.style.alignSelf = 'flex-end'; 
@@ -135,6 +140,17 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             leftBar.style.alignSelf = 'revert';
             leftBar.style.position = 'fixed';
+        }
+
+        if (navBottom >= footerTop)
+        {
+            console.log("crossed");
+            promoVideo.style.marginTop = (navBottom - footerTop) + "px";
+            promoVideo.style.position = 'absolute';
+        }
+        else
+        {
+            promoVideo.style.marginTop = "0px";
         }
     });
     
