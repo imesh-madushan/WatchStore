@@ -77,15 +77,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 navDropdown.classList.add('show');
                 navDropdownOpened = true;
             }
-            // If dropdown bar is shown mode, replace it with hide mode
-            else if(navDropdown.classList.contains('show') == true)
+            
+            else if(navDropdown.classList.contains('show') == true) // If dropdown bar is shown mode, replace it with hide mode
             {
                 showLeftBar();
                 navDropdown.classList.replace('show', 'hide');
                 navDropdownOpened = false;
             }
-            //if dropdown bar is hide mode, replace it with show mode
-            else if(navDropdown.classList.contains('hide') == true)
+
+            else if(navDropdown.classList.contains('hide') == true) //if dropdown bar is hide mode, replace it with show mode
             {
                 hideLeftBar();
                 navDropdown.classList.replace('hide', 'show');
@@ -142,13 +142,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-    // When scrolling the window, the left bar will be fixed and will scroled up
+    // When scrolling the window, 
+    // Promo video will stop at top,
+    // Left bar will be fixed at the top,
     window.addEventListener('scroll', function(){
         var navBottom = nav.getBoundingClientRect().bottom;
         var promoVideoTop = promoVideo.getBoundingClientRect().top;
         var footerTop = footer.getBoundingClientRect().top;
         var footerBottom = footer.getBoundingClientRect().bottom;
 
+        // Set the left bar to be scrolled
         if (footerTop <= window.innerHeight)
         {
             leftBar.style.position = 'absolute';
@@ -160,15 +163,16 @@ document.addEventListener("DOMContentLoaded", function() {
             leftBar.style.position = 'fixed';
         }
 
+        // IF footer top goes up by crossing the navbar bottom, the promo video will be fixed at the bottom of the navbar
         if (navBottom >= footerTop)
         {
-            console.log("footer top crossed with nav botton");
-            promoVideo.style.marginTop = (navBottom - footerTop) + "px";
-            promoVideo.style.position = 'absolute';
+            promoVideo.style.position = 'fixed';
+            promoVideo.style.top = navBottom + "px";
         }
-        else
+        else // Reset the position of the promo video
         {
-            promoVideo.style.marginTop = "0px";
+            promoVideo.style.position = 'absolute';
+            promoVideo.style.top = "auto";
         }
     });
     
