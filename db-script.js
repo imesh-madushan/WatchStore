@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 var itemDes = item.Item_Des;
                 var imgLink = item.Img_Link;
                 
-                console.log("Item "+itemId+" data fetch success");
                 createItems(itemId, itemQty, itemCat, itemPrice, itemDes);
             });
+            console.log("Item Data fetch success");
         },
 
         error: function(error){
@@ -172,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function(){
             var checkboxID = event.target.id;
             CatFilterItems(checkboxID);
         }
-        else
     });
     
 

@@ -40,7 +40,18 @@ CREATE TABLE Cart_Items (
     Cart_Qty int NOT NULL,
     Price int NOT NULL,
     Colour varchar(20) NOT NULL,
-    PRIMARY KEY (Cus_ID, Cus_ID),
+    PRIMARY KEY (Cus_ID, Item_ID),
+    FOREIGN KEY (Cus_ID) REFERENCES Customer(Cus_ID),
+    FOREIGN KEY (Item_ID) REFERENCES Items(Item_ID)
+);
+
+CREATE TABLE Cart_Items (
+    Cus_ID varchar(10),
+    Item_ID varchar(5),
+    Cart_Qty int NOT NULL,
+    Price int NOT NULL,
+    Colour varchar(20) NOT NULL,
+    PRIMARY KEY (Cus_ID, Item_ID), -- Corrected PRIMARY KEY definition
     FOREIGN KEY (Cus_ID) REFERENCES Customer(Cus_ID),
     FOREIGN KEY (Item_ID) REFERENCES Items(Item_ID)
 );
