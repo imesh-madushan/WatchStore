@@ -1,0 +1,15 @@
+CREATE TABLE Items (
+    Item_ID VARCHAR(5) PRIMARY KEY,
+    Item_Qty INT NOT NULL,
+	Item_Cat VARCHAR(20) NOT NULL,
+    Item_Price INT NOT NULL,
+    Item_Des VARCHAR(200) NOT NULL,
+	Img_Link VARCHAR(500) NOT NULL
+);
+
+CREATE TABLE Category (
+	Cat_ID VARCHAR(10) NOT NULL,
+	Cat_Name VARCHAR(20) NOT NULL,	
+);
+
+
