@@ -83,12 +83,14 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
 
-    // Get CATEGORY data from php
+    // Get CATEGORY data from php\
+    
     $.ajax({
         url: 'main.php',
         method: 'POST',
         data: {
             functionName: 'getCategoryList',
+            filterMethod: 'default',
         },
         success: function(response){
             response.forEach(cat => {
@@ -124,13 +126,53 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     
 
+
+    // Filter Items using Category
+    function CatFilterItems(filterMethod){
+        $.ajax({
+            url: 'main.php',
+            method: 'POST',
+            data: {
+                functionName: 'filterItems',
+                filterMethod: filterMethod
+            },
+            
+            dataType: 'json',
+            
+            // When http request is success
+            success: function(response){
+                response.forEach(item => {
+                    // Get details from
+                    var itemId = item.Item_ID;
+                    var itemQty = item.Item_Qty;
+                    var itemCat = item.Cat_ID;
+                    var itemPrice = item.Item_Price;
+                    var itemDes = item.Item_Des;
+                    var imgLink = item.Img_Link;
+                    
+                    console.log("filtered "+itemId);
+
+                    for (var i=0; i< productContainer.childElementCount; i++){
+                        productContainer.removeChild(productContainer.firstChild);
+                    }
+                    
+                    createItems(itemId, itemQty, itemCat, itemPrice, itemDes);
+                });
+            },
     
+            error: function(error){
+                console.error(error);
+            }
+        });
+    }
+
     // When a checkbox checked from above genarated checkboxList,
     leftBarCatUl.addEventListener('click', function checkboxClick(event) { //Listening for category checkboxes
         if (event.target.type === 'checkbox' && event.target.checked) {
             var checkboxID = event.target.id;
-            console.log(checkboxID);
+            CatFilterItems(checkboxID);
         }
+        else
     });
     
 

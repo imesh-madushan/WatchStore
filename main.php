@@ -10,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 case 'getCategoryList':
                     getCategoryList();
                     break;
+                case 'filterItems':
+                    filterItems($_POST['filterMethod']);
+                    break;
                 default:
                     accessDenied();
             }
@@ -63,8 +66,8 @@ function getAllItems(){ // Get Item details from database
 }
 
 function getCategoryList(){ // Get category listfrom database to display in left-bar
-    
     $sql = "SELECT * FROM Category";
+    
     $result = mysqli_query(getDbConnection(), $sql);
     $cat_data = array();
 
@@ -79,4 +82,21 @@ function getCategoryList(){ // Get category listfrom database to display in left
     echo $json_data;
 }
 
+
+function filterItems($filterMethod){
+    $sql = "SELECT * FROM Items WHERE Cat_ID = '$filterMethod'";
+
+    $result = mysqli_query(getDbConnection(), $sql);
+    $cat_data = array();
+
+    while($row = mysqli_fetch_array($result)){
+        $cat_data[] = $row; 
+    }
+    
+    mysqli_close(getDbConnection()); //Close the database connection
+
+    header('Content-Type: application/json');
+    $json_data = json_encode($cat_data);
+    echo $json_data;
+}
 ?>
