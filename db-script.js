@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', function(){
             //Finally add created item to display in 'products-container'
             productContainer.appendChild(itemDiv);
             console.log("items "+itemId+" created success");
+
+
         }
 
         catch(error){
@@ -119,16 +121,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
         leftBarCatUl.appendChild(li);
 
-        $i=0;
-        
-        if($i==6)
-        {
-            var x = document.getElementById('CAT001');
-            prompt(x.value);
-        }
-        
-        $i++;
     }
+    
+
+    
+    // When a checkbox checked from above genarated checkboxList,
+    leftBarCatUl.addEventListener('click', function checkboxClick(event) { //Listening for category checkboxes
+        if (event.target.type === 'checkbox' && event.target.checked) {
+            var checkboxID = event.target.id;
+            console.log(checkboxID);
+        }
+    });
+    
 
     
 })

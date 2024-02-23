@@ -13,3 +13,20 @@ CREATE TABLE Category (
 );
 
 
+CREATE TABLE Cart (
+    Cart_ID varchar(10) NOT NULL,
+    Cus_ID varchar(12),
+    PRIMARY KEY (Cart_ID),
+    FOREIGN KEY (Cus_ID) REFERENCES Customer(Cus_ID)
+);
+
+CREATE TABLE Cart_Items (
+    Cart_ID varchar(10),
+    Item_ID varchar(5),
+    Cart_Qty int NOT NULL,
+    Price int NOT NULL,
+    Colour varchar(20) NOT NULL,
+    PRIMARY KEY (Cart_ID, Item_ID),
+    FOREIGN KEY (Cart_ID) REFERENCES Cart(Cart_ID),
+    FOREIGN KEY (Item_ID) REFERENCES Items(Item_ID)
+);

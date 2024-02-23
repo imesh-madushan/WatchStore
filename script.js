@@ -117,27 +117,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Get the current viewport of item1 and item2
-        var rect1 = document.getElementById('item1').getBoundingClientRect();
-        var rect2 = document.getElementById('item2').getBoundingClientRect();
-        var distance = rect1.right - rect2.left;
-        var plusDistance = distance - 40;
-        var alltext = document.getElementsByClassName('text');
+        // var rect1 = document.getElementById('item1').getBoundingClientRect();
+        // var rect2 = document.getElementById('item2').getBoundingClientRect();
+        // var distance = rect1.right - rect2.left;
+        // var plusDistance = distance - 40;
+        // var alltext = document.getElementsByClassName('text');
 
-        // If the distance between right of item1 and left of item2 is greater than 70 and less than 90, the padding-right of item-text will be increased
-        if(rect1.right - rect2.left > 40 && rect1.right - rect2.left < 90)
-        {
-            for(var all = 0; all < alltext.length; all++)
-            {
-                alltext[all].style.paddingRight = plusDistance + "px";
-            }
-        }
-        else
-        {
-            for(var all = 0; all < alltext.length; all++)
-            {
-                alltext[all].style.paddingRight = "10px";
-            }
-        }
+        // // If the distance between right of item1 and left of item2 is greater than 70 and less than 90, the padding-right of item-text will be increased
+        // if(rect1.right - rect2.left > 40 && rect1.right - rect2.left < 90)
+        // {
+        //     for(var all = 0; all < alltext.length; all++)
+        //     {
+        //         alltext[all].style.paddingRight = plusDistance + "px";
+        //     }
+        // }
+        // else
+        // {
+        //     for(var all = 0; all < alltext.length; all++)
+        //     {
+        //         alltext[all].style.paddingRight = "10px";
+        //     }
+        // }
     });
 
 
