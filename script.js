@@ -147,20 +147,22 @@ document.addEventListener("DOMContentLoaded", function() {
     // Left bar will be fixed at the top,
     window.addEventListener('scroll', function(){
         var navBottom = nav.getBoundingClientRect().bottom;
-        var promoVideoTop = promoVideo.getBoundingClientRect().top;
         var footerTop = footer.getBoundingClientRect().top;
         var footerBottom = footer.getBoundingClientRect().bottom;
-
+        
+        // footerTop = leftBar.getBoundingClientRect.bottom + 0.1*window.innerHeight;
         // Set the left bar to be scrolled
         if (footerTop <= window.innerHeight)
         {
             leftBar.style.position = 'absolute';
             leftBar.style.alignSelf = 'flex-end'; 
+            leftBar.style.marginBottom = "24px";
         }
         else
         {
-            leftBar.style.alignSelf = 'revert';
+            // leftBar.style.bottom = 0;
             leftBar.style.position = 'fixed';
+            leftBar.style.alignSelf = 'normal'; 
         }
 
         // IF footer top goes up by crossing the navbar bottom, the promo video will be fixed at the bottom of the navbar

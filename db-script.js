@@ -156,10 +156,10 @@ document.addEventListener('DOMContentLoaded', function(){
             });
 
             var atleastOneChecked = false;
-            var catListCheckboxes = [...document.getElementsByClassName('cat-checkbox')];
+            var catListCheckboxes = [...document.getElementsByClassName('cat-checkbox')]; // Another method of declaring array
 
             var prdcon = document.getElementById('products-container');
-            var its = Array.from(prdcon.getElementsByClassName('item'));
+            var its = Array.from(prdcon.getElementsByClassName('item')); // Another method of declaring array
             its.forEach(item =>{
                 prdcon.removeChild(item); // Removing all items that currently diplaying
             });
