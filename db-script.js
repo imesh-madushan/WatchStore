@@ -2,44 +2,63 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var productContainer = document.getElementById('products-container');    
     var leftBarCatUl = document.getElementById('c-list');
+    var leftBarPriceUl = document.getElementById('p-list');
+    var currentDisplayItems = {}; 
 
-    // Get ITEM data from php using ajax, ajax has imported in home.html as script
-    $.ajax({
-        url: 'main.php',
-        method: 'POST',
-        data: {
-            functionName: 'getAllItems',
-        },
-        
-        dataType: 'json',
-        
-        // When http request is success
-        success: function(response){
-            response.forEach(item => {
-                // Get details from
-                var itemId = item.Item_ID;
-                var itemQty = item.Item_Qty;
-                var itemCat = item.Cat_ID;
-                var itemPrice = item.Item_Price;
-                var itemDes = item.Item_Des;
-                var imgLink = item.Img_Link;
+    var allItemsNeverCreated = true;
+    var itemCreatedSuccess = false;
+
+    loadItemsRequest('none', 'none');
+
+    // Filter Items using Category, or Price
+    function loadItemsRequest(category, price){ // called from leftBarCatUl.addEventListener()
+        $.ajax({
+            url: 'main.php',
+            method: 'POST',
+            data: {
+                functionName: 'loadItems',
+                category: category,
+                price: price
+            },
+            
+            dataType: 'json',
+            
+            // When http request is success
+            success: function(response){
+                console.clear();
+                currentDisplayItems = response; //not used
+                response.forEach(item => {
+                    // Get details from
+                    var itemId = item.Item_ID;
+                    var itemQty = item.Item_Qty;
+                    var itemCat = item.Cat_ID;
+                    var itemPrice = item.Item_Price;
+                    var itemDes = item.Item_Des;
+                    var imgLink = item.Img_Link;
+                    
+                    createItems(itemId, itemQty, itemCat, itemPrice, itemDes);
+                });
+
+                if(allItemsNeverCreated == true){
+                    createCatListRequest(); 
+                }
                 
-                createItems(itemId, itemQty, itemCat, itemPrice, itemDes);
-            });
-            console.log("Item Data fetch success");
-        },
+                allItemsNeverCreated = false;
+                console.log("Item Data fetch success");
+            },
+    
+            error: function(error){
+                console.error(error);
+            }
+        });
+    }
 
-        error: function(error){
-            console.error(error);
-        }
-    });
 
     // Create ITEM and display
     function createItems(itemId, itemQty, ItemCat, itemPrice, itemDes){
-        
         try{
             var itemDiv = document.createElement('div');
-            itemDiv.className = 'item';
+            itemDiv.className = 'item ' + ItemCat + ' ' +itemPrice;
             itemDiv.id = itemId;
 
             var containerDiv = document.createElement('div');
@@ -73,8 +92,6 @@ document.addEventListener('DOMContentLoaded', function(){
             //Finally add created item to display in 'products-container'
             productContainer.appendChild(itemDiv);
             console.log("items "+itemId+" created success");
-
-
         }
 
         catch(error){
@@ -83,36 +100,37 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
 
-    // Get CATEGORY data from php\
+    // Get CATEGORY data from php to update left-bar ul
+    // Only will be executed after all Items were created
+    function createCatListRequest(){ // called within the createItemsRequest()
+        $.ajax({
+            url: 'main.php',
+            method: 'POST',
+            data: {
+                functionName: 'getCategoryList',
+                filterMethod: 'default',
+            },
+            success: function(response){
+                response.forEach(cat => {
+                    var catId = cat.Cat_ID;
+                    var catName = cat.Cat_Name;
     
-    $.ajax({
-        url: 'main.php',
-        method: 'POST',
-        data: {
-            functionName: 'getCategoryList',
-            filterMethod: 'default',
-        },
-        success: function(response){
-            response.forEach(cat => {
-                var catId = cat.Cat_ID;
-                var catName = cat.Cat_Name;
-
-                updateLeftBar(catId, catName);
-            });
-        },
-
-        error: function(error){
-            console.log(error);
-        }
-    });
-
+                    updateLeftBar(catId, catName);
+                });
+            },
+    
+            error: function(error){
+                console.log(error);
+            }
+        });
+    }    
     // Update left-bar CATEGORY list
     function updateLeftBar(catId, catName){
         var input = document.createElement('input');
         var li = document.createElement('li');
 
         input.type = 'checkbox';
-        input.name = 'cat';
+        input.className = 'cat-checkbox';
         input.id = catId;
         input.value = catName;
 
@@ -122,59 +140,74 @@ document.addEventListener('DOMContentLoaded', function(){
         li.appendChild(textNode);
 
         leftBarCatUl.appendChild(li);
-
     }
     
 
-
-    // Filter Items using Category
-    function CatFilterItems(filterMethod){
-        $.ajax({
-            url: 'main.php',
-            method: 'POST',
-            data: {
-                functionName: 'filterItems',
-                filterMethod: filterMethod
-            },
+    // When a checkbox is checked that genarated,
+    // Filter Items using CATEGORY 
+    leftBarCatUl.addEventListener('click', function(event) { //Listening for every area in that ul
+        if (event.target.type === 'checkbox') { // if checkbox clicked
             
-            dataType: 'json',
-            
-            // When http request is success
-            success: function(response){
-                response.forEach(item => {
-                    // Get details from
-                    var itemId = item.Item_ID;
-                    var itemQty = item.Item_Qty;
-                    var itemCat = item.Cat_ID;
-                    var itemPrice = item.Item_Price;
-                    var itemDes = item.Item_Des;
-                    var imgLink = item.Img_Link;
-                    
-                    console.log("filtered "+itemId);
+            var priceCheckBoxes = Array.from(document.getElementsByClassName('price-radio')); // Uncheck proce radio buttons
+            priceCheckBoxes.forEach(radio => {
+                if(radio.checked){
+                    radio.checked = false;
+                }
+            });
 
-                    for (var i=0; i< productContainer.childElementCount; i++){
-                        productContainer.removeChild(productContainer.firstChild);
-                    }
-                    
-                    createItems(itemId, itemQty, itemCat, itemPrice, itemDes);
-                });
-            },
-    
-            error: function(error){
-                console.error(error);
+            var atleastOneChecked = false;
+            var catListCheckboxes = [...document.getElementsByClassName('cat-checkbox')];
+
+            var prdcon = document.getElementById('products-container');
+            var its = Array.from(prdcon.getElementsByClassName('item'));
+            its.forEach(item =>{
+                prdcon.removeChild(item); // Removing all items that currently diplaying
+            });
+
+            catListCheckboxes.forEach(checkbox => { // Create items for each checked CATEGORY
+                if(checkbox.checked){
+                    var catItems = [...document.getElementsByClassName(checkbox.id)];
+                    loadItemsRequest(checkbox.id, 'none');
+                    atleastOneChecked = true;
+                }
+            });
+
+            if(atleastOneChecked == false){ // If all checkboxs was unchecked again,
+                console.log("No category selected ");
+                loadItemsRequest('none', 'none');
             }
-        });
-    }
-
-    // When a checkbox checked from above genarated checkboxList,
-    leftBarCatUl.addEventListener('click', function checkboxClick(event) { //Listening for category checkboxes
-        if (event.target.type === 'checkbox' && event.target.checked) {
-            var checkboxID = event.target.id;
-            CatFilterItems(checkboxID);
         }
     });
     
 
-    
-})
 
+    // Filter Items using price list
+    leftBarPriceUl.addEventListener('click', function(event){
+        if(event.target.type === 'radio'){
+            var selectedRadioValue = event.target.value;
+            atleastOneChecked = false;
+
+            var prdcon = document.getElementById('products-container');
+            var its = Array.from(prdcon.getElementsByClassName('item'));
+            its.forEach(item =>{
+                console.log('removedddd '+parseInt(item.classList[2]));
+                prdcon.removeChild(item); // Removing all items that currently diplaying
+            });
+
+            var catListCheckboxes = Array.from(document.getElementsByClassName('cat-checkbox'));
+            catListCheckboxes.forEach(checkbox => { // Create items for each checked CATEGORY
+                if(checkbox.checked){
+                    var catItems = [...document.getElementsByClassName(checkbox.id)];
+                    console.log("chekbox in pircelist filter is "+parseInt(event.target.value));
+
+                    loadItemsRequest(checkbox.id, parseInt(event.target.value));
+                    atleastOneChecked = true;
+                }
+            });
+            if(atleastOneChecked == false){ // If all checkboxs was unchecked again,
+                console.log("No categoryz selected ");
+                loadItemsRequest('none', event.target.value);
+            }
+        }
+    });
+})

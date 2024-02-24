@@ -10,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 case 'getCategoryList':
                     getCategoryList();
                     break;
-                case 'filterItems':
-                    filterItems($_POST['filterMethod']);
+                case 'loadItems':
+                    loadItems($_POST['category'], $_POST['price']);
                     break;
                 default:
                     accessDenied();
@@ -83,8 +83,20 @@ function getCategoryList(){ // Get category listfrom database to display in left
 }
 
 
-function filterItems($filterMethod){
-    $sql = "SELECT * FROM Items WHERE Cat_ID = '$filterMethod'";
+function loadItems($category, $price){ // Filter items using CATEGORY id
+    $sql;
+    if($category == 'none' && $price == 'none'){
+        $sql = "SELECT * FROM Items";
+    }
+    elseif($category == 'none'){
+        $sql = "SELECT * FROM Items WHERE Item_Price > '$price'";
+    }
+    elseif($price == 'none'){
+        $sql = "SELECT * FROM Items WHERE Cat_ID = '$category'";
+    }
+    elseif($category != 'none' && $price != 'none'){
+        $sql = "SELECT * FROM Items WHERE Cat_ID = '$category' AND Item_Price > '$price'";
+    }
 
     $result = mysqli_query(getDbConnection(), $sql);
     $cat_data = array();
