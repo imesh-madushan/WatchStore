@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function(){
     var itemCreatedSuccess = false;
 
     loadItemsRequest('none', 'none');
-    checkIfLogged();
 
     // Filter Items using Category, or Price
     function loadItemsRequest(category, price){ // called from leftBarCatUl.addEventListener()
@@ -218,7 +217,29 @@ document.addEventListener('DOMContentLoaded', function(){
         var clickedElement = event.target;
         if (clickedElement.closest('.container')) { //
             var itemContainer = clickedElement.closest('.container');
-            console.log(itemContainer.parentElement.id);
+            var clickedItemId = itemContainer.parentElement.id;
+            
+            $.ajax({ // request to create new session to send sleceted item id
+                url: 'main.php',
+                method: 'POST',
+                data: {
+                    functionName: 'createSession',
+                    itemId: clickedItemId
+                },
+                dataType: 'json',
+                success: function(response){
+                    if(response.status == "success"){
+                        console.log(response);
+                        window.location.href = "single.php"; // Redirect to single.php
+                    }
+                    else{
+                        console.log(response);
+                    }
+                },
+                error: function(error){
+                    console.error(error);
+                }
+            });
         }
     });
     
@@ -230,36 +251,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-    // ---------------CHECK IF LOGGED----------------
-    // Check if user is logged
-    function checkIfLogged(){
-        $.ajax({
-            url: 'login/get-login.php',
-            method: 'POST',
-            data: {
-                functionName: 'checkCookies'
-            },
-            dataType: 'json',
-            success: function(response){
-                if(response.status == "success"){
-                    console.log("User is logged");
-                    afterCookiesLogged();
-                }
-                else{
-                    console.log("User is not logged");
-                }
-            },
-            error: function(error){
-                console.error(error);
-            }
-        });
-    }
-
-
-    function afterCookiesLogged(){
-        var navEnd = document.getElementById('navEnd');
-        navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
-        navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
-    }
+    
     
 })

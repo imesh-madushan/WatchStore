@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             case 'loadItems':
                 loadItems($_POST['category'], $_POST['price']);
                 break;
+            case 'createSession':
+                createSession($_POST['Item_ID']);
+                break;
             default:
                 accessDenied();
         }
@@ -110,5 +113,11 @@ function loadItems($category, $price){ // Filter items using CATEGORY id
     header('Content-Type: application/json');
     $json_data = json_encode($cat_data);
     echo $json_data;
+}
+
+function createSession($s_ited_id){
+    session_start();
+    $_SESSION['item_id'] = $s_ited_id;
+    echo json_encode(array("status" => "success"));
 }
 ?>

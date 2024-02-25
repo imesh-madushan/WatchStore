@@ -32,8 +32,44 @@ document.addEventListener("DOMContentLoaded", function() {
     var btnDropdownClicked = false;
     var navDropdownOpened = false;
 
-    var windowScrolledAmountY = 0;
+    checkIfLogged();
 
+
+// ---------------CHECK IF LOGGED----------------
+    // Check if user is logged
+    function checkIfLogged(){
+        $.ajax({
+            url: 'login/get-login.php',
+            method: 'POST',
+            data: {
+                functionName: 'checkCookies'
+            },
+            dataType: 'json',
+            success: function(response){
+                if(response.status == "success"){
+                    console.log("User is logged");
+                    afterCookiesLogged();
+                }
+                else{
+                    console.log("User is not logged");
+                }
+            },
+            error: function(error){
+                console.error(error);
+            }
+        });
+    }
+
+    function afterCookiesLogged(){
+        var navEnd = document.getElementById('navEnd');
+        var profilePic = document.getElementById('navProfileArea');
+        navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
+        navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
+        profilePic.style.display = 'grid';
+    }
+
+
+// ---------------MOBILE VIEW Started----------------
     // Hide the left bar FOR MOBILE VIEW
     function hideLeftBar(){
         if(window.innerWidth <= 400)
@@ -93,6 +129,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+// ---------------MOBILE VIEW Ended----------------
+
+
 
 
 

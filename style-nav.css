@@ -136,13 +136,15 @@ nav #btnDropdownArea {
 }
 
 nav #btnDropdownArea #btnDropdown {
-    width: 40px;
+    width: 32px;
     height: auto;
     transition: width 0.14s ease-in-out;
+    cursor: pointer;
+    display: flex;
 }
 
 #navProfileArea {
-    display: grid;
+    display: none;
     grid-auto-flow: row;
     width: 90px;
     height: 70px;
@@ -150,8 +152,8 @@ nav #btnDropdownArea #btnDropdown {
     cursor: pointer;
 }
 nav #navProfileArea img {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
 }
 
@@ -216,8 +218,7 @@ nav #navProfileArea img {
 }
 
 #btnDropdownArea #btnDropdown:hover {
-    height: auto;
-    width: 46px;
+    scale: 1.08;
 }
 
 .navMiddle ul li a:hover {
@@ -254,6 +255,10 @@ nav #navProfileArea img {
 
     .navEnd {
         width: 100%;
+    }
+
+    #navProfileArea {
+        margin-right: 15px;
     }
 }
 
