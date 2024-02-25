@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var btnLogin = document.getElementById('btn-Login');
 
-    btnLogin.addEventListener('click', function(event) {
+    btnLogin.addEventListener('click', function(event) { //after login button clicked
         event.preventDefault();
 
         var email = document.getElementById('login-email').value;
@@ -19,26 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
             success: function(response) {
                 console.log(response);
                 if (response.status === "success") {
-                    afterLoggedProcess();
+                    window.location.href = "../home.html"; // If login is successful, redirect to home.html
                 } else {
-                    alert("Invalid email or password");
+                    alert("Invalid email or password, please try again.");
                 }
             },
             error: function(response) {
                 console.log(response);
+                alert("Invalid email or password, please try again.");
             }
         });
     });
-
-    function afterLoggedProcess(){
-        
-        window.location.href = "../home.html";
-        // console.log(respose);
-        // var navEnd = document.getElementById('navEnd');
-        
-        // navEnd.removeChild(document.getElementById('btnLogin'));
-        // navEnd.removeChild(document.getElementById('btnRegister'));
-        
-
-    }
 });

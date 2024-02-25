@@ -44,6 +44,7 @@ function validateLogin($email, $password){ // check for the login credentials in
 
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_array($result);
+        
         setcookie("customerID", $row['Cus_ID'], time() + (86400 * 30), "/");
         setcookie("email", $email, time() + (86400 * 30), "/");        
         setcookie("password", $password, time() + (86400 * 30), "/");

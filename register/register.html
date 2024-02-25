@@ -2,27 +2,33 @@
 <html>
     <head>
         <title>Registration</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="register.css">
+        <script src="register-validate.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="image">
-            <img src="clock.jpg" alt="">
+            <img src="bac5.jpg" alt="">
         </div>
         <div class="registration-form">
             
             <h1><b>Registration</b></h1>
-            <form action="#" method="post">
+            <form>
                 <p>Full Name:</p>
-                <input type="text" name="fullname" placeholder="Full Name">
-                <p>User Name:</p>
-                <input type="text" name="username" placeholder="User Name">
+                <input type="text"   id="reg-name" placeholder="Full Name">
                 <p>Email:</p>
-                <input type="email" name="email" placeholder="Email">
+                <input type="email"  id="reg-email" placeholder="Email">
                 <p>Password:</p>
-                <input type="password" name="password" placeholder="Password">
-                <button type="submit">Registration</button>
-                <button type="submit">Login</button>
-                <button type="submit">Back</button>
+                <input type="password" id="reg-password" placeholder="Password">
+                <p>Address</p>
+                <input type="text" id="reg-address" placeholder="Address">
+
+                <div class="buttons">
+                    <button id="register-btn">Register</button>
+                    <button id="login-btn">Login</button>
+                    <button id="back-btn">Back</button>`
+                </div>
+                
             </form>
         
         </div>
