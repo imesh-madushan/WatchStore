@@ -141,6 +141,21 @@ nav #btnDropdownArea #btnDropdown {
     transition: width 0.14s ease-in-out;
 }
 
+#navProfileArea {
+    display: grid;
+    grid-auto-flow: row;
+    width: 90px;
+    height: 70px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+nav #navProfileArea img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+
 /*-----------------Animations-----------------*/
 /* Dropdown animation */
 @keyframes slideDown {
@@ -213,6 +228,7 @@ nav #btnDropdownArea #btnDropdown {
 .navBegin:hover {
     transform: scale(1.05);
 }
+
 
 
 /*-----------------Resposnsive design----------------*/

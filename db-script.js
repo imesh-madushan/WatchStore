@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function(){
             success: function(response){
                 if(response.status == "success"){
                     console.log("User is logged");
+                    afterCookiesLogged();
                 }
                 else{
                     console.log("User is not logged");
@@ -237,5 +238,11 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
 
+
+    function afterCookiesLogged(){
+        var navEnd = document.getElementById('navEnd');
+        navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
+        navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
+    }
     
 })

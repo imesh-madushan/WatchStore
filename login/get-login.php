@@ -57,7 +57,7 @@ function validateLogin($email, $password){ // check for the login credentials in
 
 function checkCookies(){ // Check for the cookies
     if(isset($_COOKIE['customerID']) && isset($_COOKIE['email']) && isset($_COOKIE['password'])){
-        echo json_encode(array("status" => "success"));
+        echo json_encode(array("status" => "success" , "customerID" => $_COOKIE['customerID'] , "email" => $_COOKIE['email'] , "password" => $_COOKIE['password']));
     }
     else{
         echo json_encode(array("status" => "failed"));
