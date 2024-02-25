@@ -212,6 +212,23 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
 
+    
+    // Event listener to listen every click ON creatd items
+    productContainer.addEventListener('click', function(event) {
+        var clickedElement = event.target;
+        if (clickedElement.closest('.container')) { //
+            var itemContainer = clickedElement.closest('.container');
+            console.log(itemContainer.parentElement.id);
+        }
+    });
+    
+
+
+
+
+
+
+
 
     // ---------------CHECK IF LOGGED----------------
     // Check if user is logged
