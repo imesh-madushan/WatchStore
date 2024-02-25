@@ -3,19 +3,19 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['functionName'])){
         
-            switch ($_POST['functionName']){  // Check which function is going to access
-                case 'getAllItems':
-                    getAllItems();
-                    break;
-                case 'getCategoryList':
-                    getCategoryList();
-                    break;
-                case 'loadItems':
-                    loadItems($_POST['category'], $_POST['price']);
-                    break;
-                default:
-                    accessDenied();
-            }
+        switch ($_POST['functionName']){  // Check which function is going to access
+            case 'getAllItems':
+                getAllItems();
+                break;
+            case 'getCategoryList':
+                getCategoryList();
+                break;
+            case 'loadItems':
+                loadItems($_POST['category'], $_POST['price']);
+                break;
+            default:
+                accessDenied();
+        }
     }
     else
     {
@@ -49,7 +49,7 @@ function getDbConnection(){
 
 function getAllItems(){ // Get Item details from database
     
-    $sql = "SELECT * FROM Items";
+    $sql = "SELECT * FROM items";
     $result = mysqli_query(getDbConnection(), $sql);
     $item_data = array();
 
@@ -66,7 +66,7 @@ function getAllItems(){ // Get Item details from database
 }
 
 function getCategoryList(){ // Get category listfrom database to display in left-bar
-    $sql = "SELECT * FROM Category";
+    $sql = "SELECT * FROM category";
     
     $result = mysqli_query(getDbConnection(), $sql);
     $cat_data = array();
@@ -86,16 +86,16 @@ function getCategoryList(){ // Get category listfrom database to display in left
 function loadItems($category, $price){ // Filter items using CATEGORY id
     $sql;
     if($category == 'none' && $price == 'none'){
-        $sql = "SELECT * FROM Items";
+        $sql = "SELECT * FROM items";
     }
     elseif($category == 'none'){
-        $sql = "SELECT * FROM Items WHERE Item_Price > '$price'";
+        $sql = "SELECT * FROM items WHERE Item_Price > '$price'";
     }
     elseif($price == 'none'){
-        $sql = "SELECT * FROM Items WHERE Cat_ID = '$category'";
+        $sql = "SELECT * FROM items WHERE Cat_ID = '$category'";
     }
     elseif($category != 'none' && $price != 'none'){
-        $sql = "SELECT * FROM Items WHERE Cat_ID = '$category' AND Item_Price > '$price'";
+        $sql = "SELECT * FROM items WHERE Cat_ID = '$category' AND Item_Price > '$price'";
     }
 
     $result = mysqli_query(getDbConnection(), $sql);

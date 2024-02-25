@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var itemCreatedSuccess = false;
 
     loadItemsRequest('none', 'none');
+    checkIfLogged();
 
     // Filter Items using Category, or Price
     function loadItemsRequest(category, price){ // called from leftBarCatUl.addEventListener()
@@ -25,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function(){
             
             // When http request is success
             success: function(response){
-                console.clear();
                 currentDisplayItems = response; //not used
                 response.forEach(item => {
                     // Get details from
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             //Finally add created item to display in 'products-container'
             productContainer.appendChild(itemDiv);
-            console.log("items "+itemId+" created success");
+            // console.log("items "+itemId+" created success");
         }
 
         catch(error){
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function(){
             var prdcon = document.getElementById('products-container');
             var its = Array.from(prdcon.getElementsByClassName('item'));
             its.forEach(item =>{
-                console.log('removedddd '+parseInt(item.classList[2]));
+                // console.log('removedddd '+parseInt(item.classList[2]));
                 prdcon.removeChild(item); // Removing all items that currently diplaying
             });
 
@@ -205,9 +205,37 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             });
             if(atleastOneChecked == false){ // If all checkboxs was unchecked again,
-                console.log("No categoryz selected ");
+                console.log("No category selected ");
                 loadItemsRequest('none', event.target.value);
             }
         }
     });
+
+
+
+    // ---------------CHECK IF LOGGED----------------
+    // Check if user is logged
+    function checkIfLogged(){
+        $.ajax({
+            url: 'login/get-login.php',
+            method: 'POST',
+            data: {
+                functionName: 'checkCookies'
+            },
+            dataType: 'json',
+            success: function(response){
+                if(response.status == "success"){
+                    console.log("User is logged");
+                }
+                else{
+                    console.log("User is not logged");
+                }
+            },
+            error: function(error){
+                console.error(error);
+            }
+        });
+    }
+
+    
 })

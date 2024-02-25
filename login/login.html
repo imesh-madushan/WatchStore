@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="login-validate.js"></script>
+    
+    <link rel="stylesheet" href="login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h1>Log in</h1>
+            <form id="form">
+                <label for="email">Email address</label>
+                <input type="email" id="login-email" name="email" class="email" required >
+                <label for="password">Password</label>
+                <input type="password" id="login-password" name="password" class="password" required autocomplete="current-password">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="stay-logged-in" name="stay_logged_in">
+                    <label for="stay-logged-in" class="stln">Stay logged in</label>
+                    <a href="#" class="fGPW">Forgot your password?</a><br>
+                    
+                </div>
+                
+                <button type="submit" class="btnLogin"  id="btn-Login">Log in</button>
+            </form>
+            <div class="social-login">
+                <p>OR</p>
+                <button class="btnGoogle" id="btnGoogle" name="btnGoogle"><img class="imgGoogle" src="images/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="Google"><label for="CWg" class="Cwithgoogle">Continue with Google</label></button>
+                <button class="btnApple" id="btnApple" name="btnApple"><img class="imgApple" src="images/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png" alt="Apple"> <label for="CWg" class="Cwithgoogle">Continue with Apple</label></button>
+                
+            </div>
+            <p>New to Chrono24? <a href="#">Create a free account now</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <a href="#" class="Dpp">Data Privacy Policy</a>
+            <a href="#" class="TC">T & C</a>
+            <a href="#" class="LD">Leagal Details</Details></a>
+            <a href="#" class="Contact">Contact</a>
+        </div>
+    </footer>
+    
+</body>
+</html>
