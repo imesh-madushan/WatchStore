@@ -42,7 +42,17 @@
                 });
                 function afterCookiesLogged(){
                     var navEnd = document.getElementById('navEnd');
+                    var navMidOptUl = document.getElementById('navMidOptions');
                     var profilePic = document.getElementById('navProfileArea');
+
+                    var cartLink = document.createElement('a');
+                    var cartli = document.createElement('li');
+                    cartLink.href = "Cart.php";
+                    cartLink.textContent = "Cart";
+                    cartli.appendChild(cartLink);
+                    navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]);
+                    navMidOptUl.style.gridTemplateColumns = "repeat(6, 17%)";
+
                     navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
                     navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
                     profilePic.style.display = 'grid';

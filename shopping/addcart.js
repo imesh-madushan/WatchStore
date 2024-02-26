@@ -1,11 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    // var btnCheckout = document.getElementById("btn-checkout");
-    // btnCheckout.addEventListener('click', function(event){
-    //     event.preventDefault();
-    //     removeCart();
-    // });
-
     var btnBack = document.getElementById("btnBack");
     btnBack.addEventListener('click', function(){
         window.location.href = "../home.html";
@@ -64,7 +58,9 @@ function removeCartRequest(){
         // When http request is success
         success: function(response){
             console.log(response);
-           alert("Item removed from cart Please refresh the page to see the changes");
+            // refresh the page
+            alert("Item removed from cart");
+            location.reload();
         },
 
         error: function(error){
@@ -88,6 +84,9 @@ function removeCart(){
         // When http request is success
         success: function(response){
             console.log(response);
+            alert("Checkout successful\n Thank You for shopping with us!");
+            location.reload();
+            window.location.href = "../home.html";
         },
 
         error: function(error){

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../style-nav.css">
     <link rel="stylesheet" href="style-single.css">
     
+    
     <title>Single Page</title>
     <script src="addcart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -42,7 +43,17 @@
                 });
                 function afterCookiesLogged(){
                     var navEnd = document.getElementById('navEnd');
+                    var navMidOptUl = document.getElementById('navMidOptions');
                     var profilePic = document.getElementById('navProfileArea');
+
+                    var cartLink = document.createElement('a');
+                    var cartli = document.createElement('li');
+                    cartLink.href = "Cart.php";
+                    cartLink.textContent = "Cart";
+                    cartli.appendChild(cartLink);
+                    navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]);
+                    navMidOptUl.style.gridTemplateColumns = "repeat(6, 17%)";
+
                     navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
                     navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
                     profilePic.style.display = 'grid';
@@ -50,7 +61,6 @@
             });
         });
         </script>
-        
 
         <div id="navDropdown">
             <ul>
