@@ -21,6 +21,9 @@
     echo $_COOKIE['customerID'];
     echo $_COOKIE['email'];
 
+    session_start();
+    echo $_SESSION['item_id'];
+
 ?>
 
 

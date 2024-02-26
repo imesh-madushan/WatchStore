@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 loadItems($_POST['category'], $_POST['price']);
                 break;
             case 'createSession':
-                createSession($_POST['Item_ID']);
+                createSession($_POST['itemId']);
                 break;
             default:
                 accessDenied();
@@ -115,9 +115,9 @@ function loadItems($category, $price){ // Filter items using CATEGORY id
     echo $json_data;
 }
 
-function createSession($s_ited_id){
+function createSession($s_item_id){
     session_start();
-    $_SESSION['item_id'] = $s_ited_id;
+    $_SESSION['item_id'] = $s_item_id;
     echo json_encode(array("status" => "success"));
 }
 ?>

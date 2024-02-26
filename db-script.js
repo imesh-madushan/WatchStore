@@ -230,10 +230,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 success: function(response){
                     if(response.status == "success"){
                         console.log(response);
-                        window.location.href = "single.php"; // Redirect to single.php
+                        window.location.href = "shopping/Single.php"; // Redirect to single.php
                     }
                     else{
-                        console.log(response);
+                        console.log(response+'failed to create session');
                     }
                 },
                 error: function(error){
