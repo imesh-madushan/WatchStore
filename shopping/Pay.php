@@ -6,7 +6,7 @@
     <title>Pay</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Styl pay.css">
-    <link rel="stylesheet" href="style-nav.css">
+    <link rel="stylesheet" href="../style-nav.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="addcart.js"></script>
     <!-- <script src="script.js" type="text/javascript"></script> -->
@@ -16,31 +16,42 @@
     <div>
    <!--==========================================================nav bar===========================================================================-->
    <div class="navbar">
-<nav id="nav">
-    <a href="#">
-        <div class="navBegin">
-            <img class="imgLogo" src="logo3.png" alt="">
-            <h2>ONE'O CLOCK</h2>
-        </div>
-    </a>
+  <nav id="nav"></nav>
+  <script>
+        $(function(){
+            $("#nav").load("../navBarForOthers/navOthers.html #nav", function(){
+                $.ajax({
+                    url: '../login/get-login.php',
+                    method: 'POST',
+                    data: {
+                        functionName: 'checkCookies'
+                    },
+                    dataType: 'json',
+                    success: function(response){
+                        if(response.status == "success"){
+                            console.log("User is logged");
+                            afterCookiesLogged();
+                        }
+                        else{
+                            console.log("User is not logged");
+                        }
+                    },
+                    error: function(error){
+                        console.error(error);
+                    }
+                });
+                function afterCookiesLogged(){
+                    var navEnd = document.getElementById('navEnd');
+                    var profilePic = document.getElementById('navProfileArea');
+                    navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
+                    navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
+                    profilePic.style.display = 'grid';
+                }
+            });
+        });
+        </script>
 
-    <div class="navMiddle">
-        <ul>
-            <li><a href="#" id="navHome">Home</a></li>
-            <li><a href="#" id="navAbout">About</a></li>
-            <li><a href="#" id="navRatings">Ratings</a></li>
-            <li><a href="#" id="navServices">Services</a></li>
-            <li><a href="#" id="navContact">Contact</a></li>
-        </ul>
-    </div>
-    <div class="navEnd">
-        <button id="btnLogin">Login</button>
-        <button id="btnRegister">Register</button>
-    </div>
-    <div id="btnDropdownArea">
-        <svg id="btnDropdown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
-    </div>
-</nav>
+
 </div>
 
 <div id="navDropdown">

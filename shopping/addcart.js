@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    var btnCheckout = document.getElementById("btn-checkout");
-    btnCheckout.addEventListener('click', function(event){
-        event.preventDefault();
-        removeCart();
-    });
-
-    // var btnAddToCart = document.getElementById("btnAddToCart");
-    // btnAddToCart.addEventListener('click', function(){
-    //     addtocartRequest();
+    // var btnCheckout = document.getElementById("btn-checkout");
+    // btnCheckout.addEventListener('click', function(event){
+    //     event.preventDefault();
+    //     removeCart();
     // });
+
+    var btnBack = document.getElementById("btnBack");
+    btnBack.addEventListener('click', function(){
+        window.location.href = "../home.html";
+    });
 
 });
 
@@ -54,7 +54,7 @@ function removeCartRequest(){
         url: 'cartsave.php',
         method: 'POST',
         data: {
-            functionName: 'remove',
+            functionName: 'removeCart',
             id: id ,
             
         },
@@ -64,7 +64,7 @@ function removeCartRequest(){
         // When http request is success
         success: function(response){
             console.log(response);
-           
+           alert("Item removed from cart Please refresh the page to see the changes");
         },
 
         error: function(error){

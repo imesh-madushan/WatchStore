@@ -87,7 +87,7 @@ function saveCart(){
 function removeCart(){
     include 'db.php';
     
-   $I_ID=$_POST['I_ID'];
+   $I_ID=$_POST['id'];
    $C_ID=$_COOKIE["customerID"];
  
 
