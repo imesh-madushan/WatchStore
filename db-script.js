@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function(){
-
     var productContainer = document.getElementById('products-container');    
     var leftBarCatUl = document.getElementById('c-list');
     var leftBarPriceUl = document.getElementById('p-list');
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var allItemsNeverCreated = true;
     var itemCreatedSuccess = false;
-
     loadItemsRequest('none', 'none');
 
     // Filter Items using Category, or Price
@@ -68,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function(){
             imageDiv.className = 'image';
 
             var image = document.createElement('img');
-            image.src = 'products/I001.jpg';
+            image.src = 'products/'+itemId+'.jpg';
 
 
             var textDiv = document.createElement('div');

@@ -85,7 +85,7 @@
                 session_start();
                 $I_ID = $_SESSION["item_id"];
                 ?>
-                <img src="Imege/<?php echo $I_ID?>.jpg" width="100%">
+                <img src="../products/<?php echo $I_ID?>.jpg" width="100%">
                 
             </div>    
         </th>
