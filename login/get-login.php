@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['functionName'])){
-        
+        include '../dbaccess.php';
         switch ($_POST['functionName']){  // Check which function is going to access
             case 'validateLogin':
                 validateLogin($_POST['email'], $_POST['password']);
@@ -25,18 +25,6 @@ function accessDenied(){
     exit ('<h1 style="text-align: center; font-family: roboto; color: red; margin-top: 6%">Access Denied !</h1>');
 }
 
-
-
-function getDbConnection(){ // Create a function to get the database connection
-
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_password = "";
-    $database = "watchstore";
-    $con = mysqli_connect($db_host, $db_user, $db_password);
-    mysqli_select_db($con, $database);
-    return $con; //return the connection    
-}   
 
 function validateLogin($email, $password){ // check for the login credentials in database
     $sql = "SELECT * FROM customer WHERE Email = '$email' AND Passwd = '$password'";

@@ -1,11 +1,17 @@
-document.addEventListener('DOMContentLoaded', function(){
+// document.addEventListener('DOMContentLoaded', function(){
 
-    var btnBack = document.getElementById("btnBack");
-    btnBack.addEventListener('click', function(){
-        window.location.href = "../home.html";
-    });
+    // if (window.location.pathname === 'Cart.php') {
+    //     var btnBack = document.getElementById("btnBack");
+    //     btnBack.addEventListener('click', function(){
+    //         window.location.href = "../home.html";
+    //     });
+    // }
 
-});
+// });
+
+function backToHome(){
+    window.location.href = "../home.html";
+}
 
 function addtocartRequest(){
     

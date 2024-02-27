@@ -164,8 +164,9 @@
                         <div class="cart-button" >
                             <form action="Pay.php" method="post">
                             <button type="submit" >Check Out</button>
-                            <button type="button" id="btnBack">Back</button>
                             </form>
+                            <button id="btnAddToCart" onclick="backToHome()">Back</button>
+                            
                         </div>
                         
                     </td>

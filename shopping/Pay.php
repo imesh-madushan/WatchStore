@@ -75,10 +75,10 @@
 </div>
 
    <!--===========================================================payment=================================================================================--> 
-   <div class="row">
+   <div class="row" style="margin-top: 80px">
       <div class="col-75">
-        <div class="container">
-          <form>
+        <div class="container"  >
+          <div>
           
             <div class="row">
               <div class="col-50">
@@ -136,8 +136,8 @@
               <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
             </label>
            
-            <button  class="btn" id="btn-checkout">checkout</button>
-          </form>
+            <button  class="btn" id="btn-checkout" onclick="removeCart()">checkout</button>
+          </div>
         </div>
       </div>
       <div class="col-25">
