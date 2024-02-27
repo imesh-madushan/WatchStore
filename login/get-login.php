@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             case 'checkCookies':
                 checkCookies();
                 break;
+            case 'logOut':
+                logOut();
+                break;
             default:
                 accessDenied();
         }
@@ -51,5 +54,13 @@ function checkCookies(){ // Check for the cookies
     else{
         echo json_encode(array("status" => "failed"));
     }
+}
+
+function logOut(){ // Log out the user
+    setcookie("customerID", "", time() - 3600, "/");
+    setcookie("email", "", time() - 3600, "/");
+    setcookie("password", "", time() - 3600, "/");
+
+    echo json_encode(array("status" => "success"));
 }
 ?>

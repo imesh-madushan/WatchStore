@@ -149,12 +149,12 @@ nav #btnDropdownArea #btnDropdown {
     width: 90px;
     height: 70px;
     margin-left: 20px;
-    cursor: pointer;
 }
 nav #navProfileArea img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 
