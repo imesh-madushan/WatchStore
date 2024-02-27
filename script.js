@@ -5,10 +5,15 @@ document.addEventListener("DOMContentLoaded", function() {
     var btnDropdown = document.getElementById('btnDropdown');
     var navDropdown = document.getElementById('navDropdown');
     var navHome = document.getElementById('navHome');
-    var navAbout = document.getElementById('navAbout');
-    var navRatings = document.getElementById('navRatings');
-    var navServices = document.getElementById('navServices');
-    var navContact = document.getElementById('navContact');
+
+    var navAbout = Array.from(document.getElementsByClassName('navAbout'));
+    var navRatings = Array.from(document.getElementsByClassName('navRatings'));
+    var navServices = Array.from(document.getElementsByClassName('navServices'));
+    var navContact = Array.from(document.getElementsByClassName('navContact'));
+
+    // var navRatings = document.getElementById('navRatings');
+    // var navServices = document.getElementById('navServices');
+    // var navContact = document.getElementById('navContact');
 
     var mainContainer = document.getElementById('main-container');
     var prodContainer = document.getElementById('products-container');
@@ -66,82 +71,24 @@ document.addEventListener("DOMContentLoaded", function() {
         var navMidOptUl = document.getElementById('navMidOptions');
         var profilePic = document.getElementById('navProfileArea');
 
-        var cartLink = document.createElement('a');
+        // Creating cart navbar option
+        var cartLink = document.createElement('a'); 
         var cartli = document.createElement('li');
         cartLink.href = "shopping/Cart.php";
         cartLink.textContent = "Cart";
         cartli.appendChild(cartLink);
-        navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]);
+        navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]); // Insert cart link to the navbar
         navMidOptUl.style.gridTemplateColumns = "repeat(6, 17%)";
 
         navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
         navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
+
         profilePic.style.display = 'grid';
+
+        // adding created cart option for navDropdown
+        var navDropdownUl = document.getElementById('navDropdownUl');
+        navDropdownUl.insertBefore(cartli, navDropdownUl.childNodes[2]);
     }
-
-
-// ---------------MOBILE VIEW Started----------------
-    // Hide the left bar FOR MOBILE VIEW
-    function hideLeftBar(){
-        if(window.innerWidth <= 400)
-        {
-            leftBar.style.display = 'none';
-            prodContainer.style.marginLeft = "-100px";
-        }
-    }
-    function showLeftBar(){
-        if(window.innerWidth <= 400)
-        {
-            leftBar.style.display = 'grid';
-            prodContainer.style.marginLeft = "-8%";
-        }
-    }
-
-    
-
-    // Event listener to listen every click
-    document.addEventListener('click', function(event) {
-        var clickedElement = event.target;
-        
-        // If the clicked button is not the dropdown button
-        if(clickedElement != btnDropdown)
-        {
-            if(navDropdown.classList.contains('show') == true)
-            {
-                showLeftBar();
-                navDropdown.classList.replace('show', 'hide');
-                navDropdownOpened = false;
-            }
-        }
-        else
-        {          
-            btnDropdownClicked = true;
-
-            // If dropdown bar is not shown mode or hide mode, dropdown bar will be shown
-            if(navDropdown.classList.contains('show') == false && navDropdown.classList.contains('hide') == false)
-            {
-                hideLeftBar();
-                navDropdown.classList.add('show');
-                navDropdownOpened = true;
-            }
-            
-            else if(navDropdown.classList.contains('show') == true) // If dropdown bar is shown mode, replace it with hide mode
-            {
-                showLeftBar();
-                navDropdown.classList.replace('show', 'hide');
-                navDropdownOpened = false;
-            }
-
-            else if(navDropdown.classList.contains('hide') == true) //if dropdown bar is hide mode, replace it with show mode
-            {
-                hideLeftBar();
-                navDropdown.classList.replace('hide', 'show');
-                navDropdownOpened = true;
-            }
-        }
-    });
-
-// ---------------MOBILE VIEW Ended----------------
 
 
 
@@ -166,29 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 navDropdown.classList.replace('hide', 'show');
             }
         }
-
-        // Get the current viewport of item1 and item2
-        // var rect1 = document.getElementById('item1').getBoundingClientRect();
-        // var rect2 = document.getElementById('item2').getBoundingClientRect();
-        // var distance = rect1.right - rect2.left;
-        // var plusDistance = distance - 40;
-        // var alltext = document.getElementsByClassName('text');
-
-        // // If the distance between right of item1 and left of item2 is greater than 70 and less than 90, the padding-right of item-text will be increased
-        // if(rect1.right - rect2.left > 40 && rect1.right - rect2.left < 90)
-        // {
-        //     for(var all = 0; all < alltext.length; all++)
-        //     {
-        //         alltext[all].style.paddingRight = plusDistance + "px";
-        //     }
-        // }
-        // else
-        // {
-        //     for(var all = 0; all < alltext.length; all++)
-        //     {
-        //         alltext[all].style.paddingRight = "10px";
-        //     }
-        // }
     });
 
 
@@ -256,48 +180,123 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('load', slider);
 
 
-
-
     // Navigate to the About when click on the navbar
-    navAbout.onclick = function(){
+    navAbout.forEach(navAbt => {
+        navAbt.onclick = function(){
             var scrollAmount = about.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
             console.log("ScrollAmountTo About "+scrollAmount);
             scrollBy({
                 top: scrollAmount,
                 behavior: "smooth"
             });
-    }
+        }
+    });
+
    
     // Navigate to the Ratings when click on the navbar
-    navRatings.onclick = function(){
-        var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-        console.log("ScrollAmountTo Ratings "+scrollAmount);
-        scrollBy({
-            top: scrollAmount,
-            behavior: "smooth"
-        });
-    }
+    navRatings.forEach(navRat => {
+        navRat.onclick = function(){
+            var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
+            console.log("ScrollAmountTo Ratings "+scrollAmount);
+            scrollBy({
+                top: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    });
+
 
     // Navigate to the Services when click on the navbar
-    navServices.onclick = function(){
-        var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-        console.log("ScrollAmountTo About "+scrollAmount);
-        scrollBy({
-            top: scrollAmount,
-            behavior: "smooth"
-        });
-    }   
+    navServices.forEach(navServ => {
+        navServ.onclick = function(){
+            var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
+            console.log("ScrollAmountTo About "+scrollAmount);
+            scrollBy({
+                top: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    }); 
+    
 
     // Navigate to the Contact when click on the navbar
-    navContact.onclick = function(){
-        var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-        console.log("ScrollAmountTo About "+scrollAmount);
-        scrollBy({
-            top: scrollAmount,
-            behavior: "smooth"
-        });
+    navContact.forEach(navContact => {
+        navContact.onclick = function(){
+            var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
+            console.log("ScrollAmountTo About "+scrollAmount);
+            scrollBy({
+                top: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    });
+   
+
+
+    
+
+// ---------------MOBILE VIEW Started---------------- *not tested nearly
+    // Hide the left bar FOR MOBILE VIEW
+    function hideLeftBar(){
+        if(window.innerWidth <= 400)
+        {
+            leftBar.style.display = 'none';
+            prodContainer.style.marginLeft = "-100px";
+        }
+    }
+    function showLeftBar(){
+        if(window.innerWidth <= 400)
+        {
+            leftBar.style.display = 'grid';
+            prodContainer.style.marginLeft = "-8%";
+        }
     }
 
+    
+
+    // Event listener to listen every click
+    document.addEventListener('click', function(event) {
+        var clickedElement = event.target;
+        
+        // If the clicked button is not the dropdown button
+        if(clickedElement != btnDropdown)
+        {
+            if(navDropdown.classList.contains('show') == true)
+            {
+                showLeftBar();
+                navDropdown.classList.replace('show', 'hide');
+                navDropdownOpened = false;
+            }
+        }
+        else
+        {          
+            btnDropdownClicked = true;
+
+            // If dropdown bar is not shown mode or hide mode, dropdown bar will be shown
+            if(navDropdown.classList.contains('show') == false && navDropdown.classList.contains('hide') == false)
+            {
+                hideLeftBar();
+                navDropdown.classList.add('show');
+                navDropdownOpened = true;
+            }
+            
+            else if(navDropdown.classList.contains('show') == true) // If dropdown bar is shown mode, replace it with hide mode
+            {
+                showLeftBar();
+                navDropdown.classList.replace('show', 'hide');
+                navDropdownOpened = false;
+            }
+
+            else if(navDropdown.classList.contains('hide') == true) //if dropdown bar is hide mode, replace it with show mode
+            {
+                hideLeftBar();
+                navDropdown.classList.replace('hide', 'show');
+                navDropdownOpened = true;
+            }
+        }
+    });
+
+// ---------------MOBILE VIEW Ended----------------
 
     
 });

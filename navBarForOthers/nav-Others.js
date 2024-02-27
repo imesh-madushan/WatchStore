@@ -52,17 +52,23 @@ document.addEventListener("DOMContentLoaded", function() {
         var navMidOptUl = document.getElementById('navMidOptions');
         var profilePic = document.getElementById('navProfileArea');
 
-        var cartLink = document.createElement('a');
+        // Creating cart navbar option
+        var cartLink = document.createElement('a'); 
         var cartli = document.createElement('li');
         cartLink.href = "shopping/Cart.php";
         cartLink.textContent = "Cart";
         cartli.appendChild(cartLink);
-        navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]);
+        navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]); // Insert cart link to the navbar
         navMidOptUl.style.gridTemplateColumns = "repeat(6, 17%)";
 
         navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
         navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
+
         profilePic.style.display = 'grid';
+
+        // adding created cart option for navDropdown
+        var navDropdownUl = document.getElementById('navDropdownUl');
+        navDropdownUl.insertBefore(cartli, navDropdownUl.childNodes[2]);
     }
 
 

@@ -93,8 +93,8 @@ nav a {
     border-radius: 20px;
     margin-top: 5px;
     position: fixed;
-    width: 230px;
-    height: 330px;
+    width: 220px;
+    height: auto;
     right: 9px;
     align-items: center;
     justify-content: center;
@@ -104,7 +104,7 @@ nav a {
 #navDropdown ul {
     list-style-type: none;
     margin-left: -30px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     font-size: 18px;
     font-family: sans-serif;
     font-weight: 600;
@@ -113,7 +113,8 @@ nav a {
 /* refers the items in the dropdown-menu */
 #navDropdown ul li {
     display: flex;
-    margin-top: 26px;
+    margin-top: 23px;
+    margin-bottom: 23px;
     width: 104px;
     border-radius: 19px;
     padding: 9px;

@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if (clickedElement.closest('.container')) { //
             var itemContainer = clickedElement.closest('.container');
             var clickedItemId = itemContainer.parentElement.id;
-            
+            console.log("clicked item id is "+clickedItemId);
             $.ajax({ // request to create new session to send sleceted item id
                 url: 'main.php',
                 method: 'POST',
