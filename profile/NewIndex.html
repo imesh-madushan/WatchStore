@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,235 +8,238 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link href="form.js" rel="javascriptform"> -->
     <!-- <link href="Payment.js" rel="javaScrptPayment"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
     <script src="form.js" type="text/javascript"></script>
     <script src="Payment.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    var unordered1Button = document.getElementById("Unordered1");
-    var mainDiv = document.getElementById("mainDiv");
-    var unordered2Button = document.getElementById("Unordered2");
-    var unordered3Button = document.getElementById("Unordered3");
-    var mainDivVideo = document.getElementById("mainDiv");
+        document.addEventListener("DOMContentLoaded", function () {
+            var unordered1Button = document.getElementById("Unordered1");
+            var mainDiv = document.getElementById("mainDiv");
+            var unordered2Button = document.getElementById("Unordered2");
+            var unordered3Button = document.getElementById("Unordered3");
+            var mainDivVideo = document.getElementById("mainDiv");
 
-    unordered1Button.addEventListener("click", function () {
-        // Show the main div and video when Unordered1 is clicked
-        mainDiv.style.display = "block";
-        mainDivVideo.play(); // Start playing the video
-    });
+            unordered1Button.addEventListener("click", function () {
+                // Show the main div and video when Unordered1 is clicked
+                mainDiv.style.display = "block";
+                mainDivVideo.play(); // Start playing the video
+            });
 
-    unordered2Button.addEventListener("click", function () {
-        // Hide the main div and pause the video when Unordered2 is clicked
-        mainDiv.style.display = "none";
-        mainDivVideo.pause();
-    });
+            unordered2Button.addEventListener("click", function () {
+                // Hide the main div and pause the video when Unordered2 is clicked
+                mainDiv.style.display = "none";
+                mainDivVideo.pause();
+            });
 
-    unordered3Button.addEventListener("click", function () {
-        // Hide the main div and pause the video when Unordered3 is clicked
-        mainDiv.style.display = "none";
-        mainDivVideo.pause();
-    });
-});
+            unordered3Button.addEventListener("click", function () {
+                // Hide the main div and pause the video when Unordered3 is clicked
+                mainDiv.style.display = "none";
+                mainDivVideo.pause();
+            });
+        });
 
-     
-         document.addEventListener("DOMContentLoaded", function () {
-             var unordered2Link = document.getElementById("Unordered2");
-             var paymentSection = document.getElementById("Payment");
-             var unordered1Link = document.getElementById("Unordered1");
-             var unordered3Link = document.getElementById("Unordered3");
-     
-             // Hide the Payment section initially
-             paymentSection.style.display = "none";
-     
-             unordered2Link.addEventListener("click", function () {
-                 // Show the Payment section when Unordered2 is clicked
-                 paymentSection.style.display = "block";
-             });
-     
-             unordered1Link.addEventListener("click", function () {
-                 // Hide the Payment section when Unordered1 is clicked
-                 paymentSection.style.display = "none";
-             });
-     
-             unordered3Link.addEventListener("click", function () {
-                 // Hide the Payment section when Unordered3 is clicked
-                 paymentSection.style.display = "none";
-             });
-         });
-     
-         document.addEventListener("DOMContentLoaded", function () {
-             var unordered3Link = document.getElementById("Unordered3");
-             var unordered2Link = document.getElementById("Unordered2");
-             var unordered1Link = document.getElementById("Unordered1");
-             var paymentLink = document.getElementById("Payment");
-             var form = document.getElementById("form");
-     
-             // Hide the form section initially
-             form.style.display = "none";
-     
-             unordered3Link.addEventListener("click", function () {
-                 // Show the form section when Unordered3 is clicked
-                 form.style.display = "block";
-             });
-     
-             unordered2Link.addEventListener("click", function () {
-                 // Hide the form section when either Unordered2 or Payment is clicked
-                 form.style.display = "none";
-             });
-     
-             unordered1Link.addEventListener("click", function () {
-                 // Hide the form section when Unordered1 is clicked
-                 form.style.display = "none";
-             });
-     
-             paymentLink.addEventListener("click", function () {
-                 // Hide the form section when either Unordered2 or Payment is clicked
-                 form.style.display = "none";
-             });
-         });
-     
-         document.addEventListener("DOMContentLoaded", function () {
-                 var selectDeliveryAddRadio = document.getElementById("SelectDeliveryAdd");
-                 var labelTxtBillingAddress = document.getElementById("LabeltxtBillingAddress");
-                 var txtBillingAddress = document.getElementById("txtBillingAddress");
-     
-             
-     
-                 // Add a click event listener to the radio button
-                 selectDeliveryAddRadio.addEventListener("click", function () {
-                     // Check if the radio button is selected
-                     if (selectDeliveryAddRadio.checked) {
-                         // Hide the label and text box
-                         labelTxtBillingAddress.style.display = "none";
-                         txtBillingAddress.style.display = "none";
-                     } else {
-                         // Show the label and text box
-                         labelTxtBillingAddress.style.display = "block";
-                         txtBillingAddress.style.display = "block";
-                     }
-                 });
-             });
-     
-     
-             document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('Save1').addEventListener('click', function (event) {
-            
-            /*
-            // Full Name validation
-            var fullName = document.getElementsByName('txtFullName')[0].value.trim();
-            if (fullName === '') {
-                alert('Full Name is required');
-                return;
-            }
 
-            // Email validation
-            var email = document.getElementsByName('txtEmail')[0].value.trim();
-            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailPattern.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
+        document.addEventListener("DOMContentLoaded", function () {
+            var unordered2Link = document.getElementById("Unordered2");
+            var paymentSection = document.getElementById("Payment");
+            var unordered1Link = document.getElementById("Unordered1");
+            var unordered3Link = document.getElementById("Unordered3");
 
-            // Phone Number 1 validation
-            var phone1 = document.getElementsByName('txtPhone')[0].value.trim();
-            if (phone1 === '' || isNaN(phone1)) {
-                alert('Phone Number 1 is required and should be numeric');
-                return;
-            }
+            // Hide the Payment section initially
+            paymentSection.style.display = "none";
 
-            // Additional Phone Number validation
-            var additionalPhone = document.getElementsByName('txtPhone')[1].value.trim();
-            if (additionalPhone === '' || isNaN(additionalPhone)) {
-                alert('Additional Phone Number is required and should be numeric');
-                return;
-            }
-            */
+            unordered2Link.addEventListener("click", function () {
+                // Show the Payment section when Unordered2 is clicked
+                paymentSection.style.display = "block";
+            });
 
-            // Check if Phone Number 1 is the same as Additional Phone Number
-            var phone1 = document.getElementsByName('txtPhone')[0].value.trim();
-            var additionalPhone = document.getElementsByName('txtPhone')[1].value.trim();
-            if (phone1 === additionalPhone) {
-                alert('Phone Number 1 must differ from the Additional Phone Number');
-                return;
-            }
+            unordered1Link.addEventListener("click", function () {
+                // Hide the Payment section when Unordered1 is clicked
+                paymentSection.style.display = "none";
+            });
 
-            /*
+            unordered3Link.addEventListener("click", function () {
+                // Hide the Payment section when Unordered3 is clicked
+                paymentSection.style.display = "none";
+            });
+        });
 
-            // Address validation
-            var address = document.getElementsByName('txtAddress')[0].value.trim();
-            if (address === '') {
-                alert('Address is required');
-                return;
-            }
+        document.addEventListener("DOMContentLoaded", function () {
+            var unordered3Link = document.getElementById("Unordered3");
+            var unordered2Link = document.getElementById("Unordered2");
+            var unordered1Link = document.getElementById("Unordered1");
+            var paymentLink = document.getElementById("Payment");
+            var form = document.getElementById("form");
 
-            // City validation
-            var city = document.getElementsByName('txtCity')[0].value.trim();
-            if (city === '') {
-                alert('City is required');
-                return;
-            }
+            // Hide the form section initially
+            form.style.display = "none";
 
-            // State validation
-            var state = document.getElementsByName('txtState')[0].value.trim();
-            if (state === '') {
-                alert('State is required');
-                return;
-            }
+            unordered3Link.addEventListener("click", function () {
+                // Show the form section when Unordered3 is clicked
+                form.style.display = "block";
+            });
 
-            // Zip Code validation
-            var zipCode = document.getElementsByName('txtZip')[0].value.trim();
-            if (zipCode === '' || isNaN(zipCode)) {
-                alert('Zip Code is required and should be numeric');
-                return;
-            }
-                
+            unordered2Link.addEventListener("click", function () {
+                // Hide the form section when either Unordered2 or Payment is clicked
+                form.style.display = "none";
+            });
+
+            unordered1Link.addEventListener("click", function () {
+                // Hide the form section when Unordered1 is clicked
+                form.style.display = "none";
+            });
+
+            paymentLink.addEventListener("click", function () {
+                // Hide the form section when either Unordered2 or Payment is clicked
+                form.style.display = "none";
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var selectDeliveryAddRadio = document.getElementById("SelectDeliveryAdd");
+            var labelTxtBillingAddress = document.getElementById("LabeltxtBillingAddress");
+            var txtBillingAddress = document.getElementById("txtBillingAddress");
+
+
+
+            // Add a click event listener to the radio button
+            selectDeliveryAddRadio.addEventListener("click", function () {
+                // Check if the radio button is selected
+                if (selectDeliveryAddRadio.checked) {
+                    // Hide the label and text box
+                    labelTxtBillingAddress.style.display = "none";
+                    txtBillingAddress.style.display = "none";
+                } else {
+                    // Show the label and text box
+                    labelTxtBillingAddress.style.display = "block";
+                    txtBillingAddress.style.display = "block";
+                }
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('Save1').addEventListener('click', function (event) {
+                /*
+                // Full Name validation
+                var fullName = document.getElementsByName('txtFullName')[0].value.trim();
+                if (fullName === '') {
+                    alert('Full Name is required');
+                    return;
+                }
+    
+                // Email validation
+                var email = document.getElementsByName('txtEmail')[0].value.trim();
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (!emailPattern.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+    
+                // Phone Number 1 validation
+                var phone1 = document.getElementsByName('txtPhone')[0].value.trim();
+                if (phone1 === '' || isNaN(phone1)) {
+                    alert('Phone Number 1 is required and should be numeric');
+                    return;
+                }
+    
+                // Additional Phone Number validation
+                var additionalPhone = document.getElementsByName('txtPhone')[1].value.trim();
+                if (additionalPhone === '' || isNaN(additionalPhone)) {
+                    alert('Additional Phone Number is required and should be numeric');
+                    return;
+                }
                 */
 
+                // Check if Phone Number 1 is the same as Additional Phone Number
+                var phone1 = document.getElementsByName('txtPhone')[0].value.trim();
+                var additionalPhone = document.getElementsByName('txtPhone')[1].value.trim();
+                if (phone1 === additionalPhone) {
+                    alert('Phone Number 1 must differ from the Additional Phone Number');
+                    return;
+                }
 
-            // Display success message
-            var form = document.querySelector('form');
-
-            if (!form.checkValidity()) {
-                // If the form is not valid, prevent submission
-                event.preventDefault();
-                alert('Please fill in all required fields correctly before submitting.');
-            } else {
-                // The form is valid, proceed with submission or any other action
-                alert('Your payment details have been successfully updated!');
-            }
-        });
-        
-    });
-        
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('Save2').addEventListener('click', function (event) {
-            var form = document.querySelector('#Payment form');
-
-            if (!form.checkValidity()) {
-                // If the form is not valid, prevent submission
-                event.preventDefault();
-                alert('Please fill in all required fields correctly before submitting.');
-            } else {
-                // The form is valid, proceed with submission or any other action
-                alert('Your payment details have been successfully updated!');
-            }
-        });
-    });
+                /*
     
-     </script>
-     
-     
-     
-     
-     
+                // Address validation
+                var address = document.getElementsByName('txtAddress')[0].value.trim();
+                if (address === '') {
+                    alert('Address is required');
+                    return;
+                }
     
+                // City validation
+                var city = document.getElementsByName('txtCity')[0].value.trim();
+                if (city === '') {
+                    alert('City is required');
+                    return;
+                }
+    
+                // State validation
+                var state = document.getElementsByName('txtState')[0].value.trim();
+                if (state === '') {
+                    alert('State is required');
+                    return;
+                }
+    
+                // Zip Code validation
+                var zipCode = document.getElementsByName('txtZip')[0].value.trim();
+                if (zipCode === '' || isNaN(zipCode)) {
+                    alert('Zip Code is required and should be numeric');
+                    return;
+                }
+                    
+                    */
+
+
+                // Display success message
+                var form = document.querySelector('form');
+
+                if (!form.checkValidity()) {
+                    // If the form is not valid, prevent submission
+                    event.preventDefault();
+                    alert('Please fill in all required fields correctly before submitting.');
+                } else {
+                    // The form is valid, proceed with submission or any other action
+                    alert('Your payment details have been successfully updated!');
+                }
+            });
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('Save2').addEventListener('click', function (event) {
+                var form = document.querySelector('#Payment form');
+
+                if (!form.checkValidity()) {
+                    // If the form is not valid, prevent submission
+                    event.preventDefault();
+                    alert('Please fill in all required fields correctly before submitting.');
+                } else {
+                    // The form is valid, proceed with submission or any other action
+                    alert('Your payment details have been successfully updated!');
+                }
+            });
+        });
+
+    </script>
+
+
+
+
+
+
 
     <nav class="sidebar close">
         <header>
@@ -244,7 +248,7 @@
                     <img src="logo3.jpg" alt="logo">
 
                 </span>
-                
+
                 <div class="text header-text">
                     <span class="name">ONE O'CLOCK</span>
                     <span class="profession">Customer</span>
@@ -259,44 +263,44 @@
 
         <div class="menu-bar">
             <div class="menu">
-                
+
                 <ul class="menu-links">
                     <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-user icon' ></i>
-                        <span class="text nav-text" id="Unordered1">Profile</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-edit icon' ></i>
-                        <span class="text nav-text" id="Unordered3">Edit Profile</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-credit-card icon' ></i>
-                        <span class="text nav-text" id="Unordered2">Payment Details</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="../home.html">
-                        <i class='bx bxs-dashboard icon' ></i>
-                        <span class="text nav-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="../shopping/Cart.php">
-                        <i class='bx bx-cart icon' ></i>
-                        <span class="text nav-text">Cart</span>
-                    </a>
-                </li>
+                        <a href="#">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text" id="Unordered1">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-edit icon'></i>
+                            <span class="text nav-text" id="Unordered3">Edit Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-credit-card icon'></i>
+                            <span class="text nav-text" id="Unordered2">Payment Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../home.html">
+                            <i class='bx bxs-dashboard icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../shopping/Cart.php">
+                            <i class='bx bx-cart icon'></i>
+                            <span class="text nav-text">Cart</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="bottom-content">
                 <li class="" id="btnLogout" onclick="requesLogOut()">
                     <a>
-                        <i class='bx bx-log-out icon' ></i>
+                        <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
                 </li>
@@ -312,7 +316,7 @@
 
                     -->
 
-                    <!--
+                <!--
                     <div class="toggle-switch">
                         <span class="switch"></span>
                     </div>
@@ -321,31 +325,32 @@
                 </li>
             </div>
         </div>
-        </nav>
-        </div>
-     </nav>  
-     
-     <section class="home">
+    </nav>
+    </div>
+    </nav>
+
+    <section class="home">
 
         <div id="MainDiv">
             <div id="mainDiv" style="background-color: aliceblue;">
-                <a href="#">
-                    
-                <video style="height: 100%; width: 100%; margin-top: 20px; margin-bottom: 20PX;"  autoplay muted loop id="video-background" >
-                    <source src="Watch Product Video intro.webm" type="video/mp4" id="mainDiv">
-                    Your browser does not support the video tag.
-                </video> </a>
-            
-        </div>
-        <div class="text">
+                <a href="../home.html">
 
-            
+                    <video style="height: 100%; width: 100%; margin-top: 20px; margin-bottom: 20PX;" autoplay muted loop
+                        id="video-background">
+                        <source src="Watch Product Video intro.webm" type="video/mp4" id="mainDiv">
+                        Your browser does not support the video tag.
+                    </video> </a>
 
-            
-            <div id="form">
-                <form method="post" action="Profile.php" >
-                    <table>
-                            
+            </div>
+            <div class="text">
+
+
+
+
+                <div id="form">
+                    <form>
+                        <table>
+
                             <tr>
                                 <td></td>
                                 <td></td>
@@ -355,79 +360,90 @@
                                     <h4 style="font-weight: bold;">Personal Information</h4>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td><label for="FullName">
-                                    Full Name (Required)</label>
+                                        Full Name (Required)</label>
                                 </td>
                                 <td>
-                
+
                                 </td>
                             </tr>
-                            <tr >
+                            <tr>
                                 <td colspan="2">
-                                    <input type="text" name="txtFullName" id="txtFullName" style="width: 100%;" placeholder="Input Full Name" title="It is required. Enter Your Full Name" required><br><br>
+                                    <input type="text" name="txtFullName" id="txtFullName" style="width: 100%;"
+                                        placeholder="Input Full Name" title="It is required. Enter Your Full Name"
+                                        required><br><br>
                                 </td>
                             </tr>
                             <!-- Add more rows as needed -->
                             <tr>
-                
+
                             </tr>
                             <tr>
                                 <td><label for="Email">
-                                    Email</label>
+                                        Email</label>
                                 </td>
                                 <td>
-                
+
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="email" name="txtEmail" id="txtEmail" style="width: 75%;" placeholder="Input a Valid Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address"  required><br><br>
+                                    <input type="email" name="txtEmail" id="txtEmail" style="width: 75%;"
+                                        placeholder="Input a Valid Email"
+                                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                        title="Please enter a valid email address" required><br><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label for="Gender">
                                         Gender:</label>
-                                        <select id="Gender" style="width: 55%;" name="gender">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Custome">Custome</option>
-                                        </select><br><br>   
+                                    <select id="Gender" style="width: 55%;" name="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Custome">Custome</option>
+                                    </select><br><br>
                                 </td>
-                
+
                                 <td>
                                 </td>
-                                </tr>
-                
-                                <tr>
-                                   <td>
-                                   <label for="DateOfBirth">Date of Birth:</label>
-                                </td>
-                            
-                                </tr> 
-                                <tr>
-                                <td>
-                                    <input id="txtDateOfBirth" type="date" name="txtDateOfBirth"  style="width: 70%;" ><br><br>
-                                </td>
-                                <td>
-                                </td>   
-                            
-                                <tr>
-                                    <td><label for="Phone">Phone Number 1:</label>
-                                    </td>
-                                     <td>
-                                        <label for="Phone">Additional Phone Number:</label>
-                                    </td>
-                                </tr>
-                            
+                            </tr>
+
                             <tr>
                                 <td>
-                                    <input id="PhoneNo1" type="text" name="txtPhone" style="width: 70%;" placeholder="Input Mobile Number" pattern="[0-9]{10}" title="Please enter a valid 10-digit Contact Number" required><br><br>
+                                    <label for="DateOfBirth">Date of Birth:</label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="txtDateOfBirth" type="date" name="txtDateOfBirth"
+                                        style="width: 70%;"><br><br>
                                 </td>
                                 <td>
-                                    <input id="AdditionalPhoneNo" type="text" name="txtPhone" style="width: 70%;" placeholder="Input Additional Mobile Number" pattern="[0-9]{10}" title="Please enter a valid 10-digit Contact Number for additional phone number" required><br><br>
+                                </td>
+
+                            <tr>
+                                <td><label for="Phone">Phone Number 1:</label>
+                                </td>
+                                <td>
+                                    <label for="Phone">Additional Phone Number:</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input id="PhoneNo1" type="text" name="txtPhone" style="width: 70%;"
+                                        placeholder="Input Mobile Number" pattern="[0-9]{10}"
+                                        title="Please enter a valid 10-digit Contact Number" required><br><br>
+                                </td>
+                                <td>
+                                    <input id="AdditionalPhoneNo" type="text" name="txtPhone" style="width: 70%;"
+                                        placeholder="Input Additional Mobile Number" pattern="[0-9]{10}"
+                                        title="Please enter a valid 10-digit Contact Number for additional phone number"
+                                        required><br><br>
                                 </td>
                             </tr>
                             <tr>
@@ -437,165 +453,183 @@
                                     <label for="City">City:</label>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td>
-                                    <input type="text" name="txtAddress" id="txtAddress" style="width: 70%;" placeholder="House No./ building/ street/ area" title="Address is Required" required ><br><br>
+                                    <input type="text" name="txtAddress" id="txtAddress" style="width: 70%;"
+                                        placeholder="House No./ building/ street/ area" title="Address is Required"
+                                        required><br><br>
                                 </td>
                                 <td>
-                                    <input type="text" name="txtCity" id="txtCity" style="width: 70%;" placeholder="Input The City" title="City is required" required><br><br>
+                                    <input type="text" name="txtCity" id="txtCity" style="width: 70%;"
+                                        placeholder="Input The City" title="City is required" required><br><br>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td><label for="State">State:</label>
                                 </td>
                                 <td>
                                     <label for="Zip">Zip:</label>
                                 </td>
-                
-                            </tr>  
+
+                            </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="txtState" id="txtState" style="width: 70%;" placeholder="Enter Your State" title="State is required" required><br><br>
+                                    <input type="text" name="txtState" id="txtState" style="width: 70%;"
+                                        placeholder="Enter Your State" title="State is required" required><br><br>
                                 </td>
                                 <td>
-                                    <input type="text" name="txtZip" id="txtZip" style="width: 70%;" placeholder="Enter Zip Code" title="Zip Code is required" required><br><br>
+                                    <input type="text" name="txtZip" id="txtZip" style="width: 70%;"
+                                        placeholder="Enter Zip Code" title="Zip Code is required" required><br><br>
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <td colspan="2">
-                                <center>
-                                    <input type="submit" value="Save" id="Save1" name="Save" style="width: 20%; --clr:#1" ><i></i></i><br><br>
-                                </center>
+                                    <center>
+                                        <button value="Save" id="Save1" name="Save" style="width: 20%; --clr:#1"
+                                            onclick="RequestUpdateDAta()"><i>Save</i></button><br><br>
+                                    </center>
                                 </td>
                             </tr>
-                            
-                     </table>
-                </form>
 
-            </div>
-    
+                        </table>
+                    </form>
+
+
+                </div>
+
                 <div id="Payment">
-                    <form method="post" action="Profile.php">
-                        <table>
-                                <tr>
-                                    <td>
-                                        <h4 style="font-weight: bold;">Delivery Information</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    <input type="checkbox" name="DeliveryAddress" id="SelectDeliveryAdd" value="SelectDeliveryAdd">Select Your Address As Delivery Address<br><br>
-                                    </td>
-                                </tr>
-                    
-                                <tr>
-                                    <td>
-                                        <label id="LabeltxtBillingAddress" for="BillingAddress">Address:</label>
-                                    </td>
-                                    <td>
-                                       
-                                    </td>
-                                </tr>
-                    
-                                <tr>
-                                    <td colspan="2">
-                                        <input id="txtBillingAddress" type="text" name="txtBillingAddress" style="width: 70%;" placeholder="Enter a Delivery Address" required><br><br>
-                                    </td>
-                                   
-                                </tr>
-                    
-                                <tr>
-                                    <td>
-                                        <label for="ContactNoForDelivery" name="ContactNoForDelivery" id="ContactNoForDelivery">Phone Number For Delivery:</label>
-                                    </td>
-                                    </tr>
-                    
-                                    <tr>
-                                      <td>
-                                        <input type="text" name="txtContactNoForDelivery" style="width: 70%;" placeholder="Enter a Contact Number for Delivery" pattern="[0-9]{10}" title="Please enter a valid 10-digit Contact Number for Delivery"  required ><br><br>
-                                        </td>
-                                    </tr>    
-                    
-                                    <tr>
-                                        <td>
-                                            <h4 style="font-weight: bold;">Add a New Card</h4>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="CardNumber">Card Number:</label>
-                                        </td>
-                                        <td>
-                                            <label for="CardType">Card Type:</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" name="txtCardNumber" style="width: 70%;" placeholder="Enter Card Number" ><br><br>
-                                        </td>
-                                        <td>
-                                            <select style="width: 55%;" name="CardType">
-                                                <option value="Visa">Visa</option>
-                                                <option value="MasterCard">MasterCard</option>
-                                                <option value="AmericanExpress">American Express</option>
-                                                <option value="Discover">Discover</option>
-                                            </select><br><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="CardHolderName">Card Holder Name:</label>
-                                        </td>
-                                        <td>
-                                            <label for="ExpiryDate">Expiry Date:</label>
-                                        </td>
-                                    </tr>
-                    
-                                    <tr>
-                                        <td>
-                                            <input type="text" name="txtCardHolderName" style="width: 70%;" placeholder="Enter Card Holder Name" ><br><br>
-                                        </td>
-                                        <td>
-                                            <input type="date" name="txtExpiryDate" style="width: 70%;" ><br><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="CVV">CVV:</label>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" name="txtCVV" style="width: 70%;" placeholder="Enter CVV" ><br><br>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox" name="SaveCard" id="SaveCard" value="SaveCard">Save Card<br><br><br><br>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                            <center>
-                                                <input type="submit" value="Save" id="Save2" name="Save" style="width: 20%;" ><br><br>
-                                            </center>
-                                            </td>
-                                        </tr>
-                                        </table>
-                                        </form>
 
-               </div>
-        </div> 
-        </div>
-    </div>
-            
-        </div>
-     </section>
+                    <table>
+                        <tr>
+                            <td>
+                                <h4 style="font-weight: bold;">Delivery Information</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="DeliveryAddress" id="SelectDeliveryAdd"
+                                    value="SelectDeliveryAdd">Select Your Address As Delivery Address<br><br>
+                            </td>
+                        </tr>
 
-     <script src="script.js"></script>
-    
+                        <tr>
+                            <td>
+                                <label id="LabeltxtBillingAddress" for="BillingAddress">Address:</label>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <input id="txtBillingAddress" type="text" name="txtBillingAddress" style="width: 70%;"
+                                    placeholder="Enter a Delivery Address" required><br><br>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="ContactNoForDelivery" name="ContactNoForDelivery"
+                                    id="ContactNoForDelivery">Phone Number For Delivery:</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" name="txtContactNoForDelivery" style="width: 70%;"
+                                    placeholder="Enter a Contact Number for Delivery" pattern="[0-9]{10}"
+                                    title="Please enter a valid 10-digit Contact Number for Delivery" required><br><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h4 style="font-weight: bold;">Add a New Card</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="CardNumber">Card Number:</label>
+                            </td>
+                            <td>
+                                <label for="CardType">Card Type:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="txtCardNumber" style="width: 70%;"
+                                    placeholder="Enter Card Number"><br><br>
+                            </td>
+                            <td>
+                                <select style="width: 55%;" name="CardType">
+                                    <option value="Visa">Visa</option>
+                                    <option value="MasterCard">MasterCard</option>
+                                    <option value="AmericanExpress">American Express</option>
+                                    <option value="Discover">Discover</option>
+                                </select><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="CardName">Card Holder Name:</label>
+                            </td>
+                            <td>
+                                <label for="ExpiryDate">Expiry Date:</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" name="txtCardHolderName" style="width: 70%;"
+                                    placeholder="Enter Card  Name"><br><br>
+                            </td>
+                            <td>
+                                <input type="date" name="txtExpiryDate" style="width: 70%;"><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="CVV">CVV:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="txtCVV" style="width: 70%;" placeholder="Enter CVV"><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="SaveCard" id="SaveCard" value="SaveCard">Save
+                                Card<br><br><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <center>
+                                    <button value="Save" id="Save2" name="Save" style="width: 20%;"
+                                        onclick=" RequestAddDeliveryInfor()">Save </button>
+                                    <br><br>
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>

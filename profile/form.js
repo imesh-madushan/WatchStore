@@ -1,5 +1,11 @@
-// document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
+
+});
+
+
+
+function RequestUpdateDAta(){
 var FullName  = document.getElementById("txtFullName").value;
 var Email = document.getElementById("txtEmail").value;
 var gender = document.getElementById("txtGender").value;
@@ -10,8 +16,54 @@ var Address = document.getElementById("txtAddress").value;
 var City = document.getElementById("txtCity").value;
 var State = document.getElementById("txtState").value;
 var ZipCode = document.getElementById("txtZip").value;
+$a.ajax({
+    url:'Profile.php',
+    methode:'POST',
+    data:{
+        functionName:'updateUserDetails',
+        FullName: FullName,
+        Email: Email,
+        gender: gender,
+        dateOfBirth: dateOfBirth,
+        PhoneNo1: PhoneNo1,
+        AdditionalPhoneNo: AdditionalPhoneNo,
+        Address: Address,
+        City: City,
+        State: State,
+        ZipCode: ZipCode,
 
-var bntLogout = document.getElementById("btnLogout");
+    },
+    dataType:'json',
+
+    success:function(response){
+        console.log("hi");
+    if(response.status=="success"){
+        console.log("Saved")
+        alert("Your Datails are Saved");
+    }
+    else{
+        console.log("unhi");
+        alert("Can't Save Your Details");
+    }
+},
+
+    error:function(error){
+        console.log("err");
+        console.error(error);
+    }
+});
+
+
+}
+
+
+
+
+
+    
+
+
+
 
 // bntLogout.addEventListener('click', function(){
     function requesLogOut(){
@@ -37,6 +89,6 @@ var bntLogout = document.getElementById("btnLogout");
         }
     });
 }
-// });
+
 
 // });
