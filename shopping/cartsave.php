@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 case'checkout':
                     checkout();
                     break;
+                    case'checkCookies':
+                        checkCookies();
+                        break;
                 default:
                     accessDenied();
             }
@@ -42,7 +45,15 @@ function accessDenied(){
 
 
 
-
+function checkCookies()
+{ 
+    if (isset($_COOKIE['customerID']) && isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+        echo json_encode(array("status" => "success", "customerID" => $_COOKIE['customerID'], "email" => $_COOKIE['email'], "password" => $_COOKIE['password']));
+    } 
+    else {
+        echo json_encode(array("status" => "error", "message" => "Cookies are not set"));
+    }
+}
 
 
 
@@ -118,4 +129,14 @@ function checkout(){
     
     header("Location: Pay.php");
     echo json_encode("checkout successfully");
+}
+
+// Check for the cookies
+function cs()
+{ 
+    if (isset($_COOKIE['customerID']) && isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+        echo json_encode(array("status" => "success", "customerID" => $_COOKIE['customerID'], "email" => $_COOKIE['email'], "password" => $_COOKIE['password']));
+    } else {
+        echo json_encode($_COOKIE['customerID']);
+    }
 }

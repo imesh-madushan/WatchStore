@@ -53,7 +53,7 @@ function getCategoryList()
 
 function loadItems($category, $price)
 { // Filter items using CATEGORY id
-    $sql = "";
+    $sql = '';
     if ($category == 'none' && $price == 'none') {
         $sql = "SELECT * FROM items";
     } elseif ($category == 'none') {
@@ -78,7 +78,7 @@ function loadItems($category, $price)
     echo $json_data;
 }
 
-function createSession($s_item_id)
+function createSession($s_item_id)// Start a session
 {
     session_start();
     $_SESSION['item_id'] = $s_item_id;

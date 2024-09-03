@@ -1,27 +1,44 @@
-.single-product{
+.single-product {
     margin-top: 110px;
-    margin-left: 10%;
+    /* margin-left: 10%; */
     margin-right: 10%;
     width: 100%;
-   
-   
+
+
 }
 
-th{
+.tb {
+    border-radius: 19px;
+
+}
+
+th {
     width: 50%;
-    background-color: darkgrey;
+    background-color: rgba(255, 255, 255, 0);
     padding: 5px;
+    margin-left: 10%;
+    border-radius: 20px;
 }
-.col-img{
+
+.col-img {
     width: 80%;
+    margin: 10px;
+    border-radius: 20px;
 }
-.singledes{
-    
+
+.col-img img {
+    border-radius: 20px;
+    box-shadow: 0px 0px 35px 15px rgba(79, 76, 76, 0.25);
+}
+
+.singledes {
+
     text-align: left;
 }
-.btnsingle{
+
+.btnsingle {
     margin-top: 20px;
-    
+
     padding: 10px 20px;
     border: 1px solid #100301;
     background-color: black;
@@ -29,21 +46,27 @@ th{
     font-size: 15px;
     cursor: pointer;
     margin-left: 10px;
-    
+
     border-radius: 19px;
 }
-#link{
+
+#link {
     text-decoration: none;
     color: rgb(100, 100, 100);
 }
-.btnsingle:hover{
+
+.btnsingle:hover {
     transition: all 0.3s ease-in-out;
     background-color: white;
     color: black;
 }
-#des{
+
+#des {
     width: 80%;
 }
-.main{
-    margin-left: 10%;
+
+.main {
+    margin-left: 5%;
+    margin-right: 5%;
+
 }

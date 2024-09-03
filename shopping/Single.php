@@ -9,9 +9,9 @@
 
 
     <title>Single Page</title>
-    <!-- <script src="script.js" type="text/javascript"></script> -->
-    <script src="addcart.js" type="text/javascript"></script>
+    <script src="addcart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="validate.js"></script>
 </head>
 
 <body>
@@ -49,23 +49,17 @@
                             var navMidOptUl = document.getElementById('navMidOptions');
                             var profilePic = document.getElementById('navProfileArea');
 
-                            // Creating cart navbar option
                             var cartLink = document.createElement('a');
                             var cartli = document.createElement('li');
-                            cartLink.href = "shopping/Cart.php";
+                            cartLink.href = "Cart.php";
                             cartLink.textContent = "Cart";
                             cartli.appendChild(cartLink);
-                            navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]); // Insert cart link to the navbar
+                            navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]);
                             navMidOptUl.style.gridTemplateColumns = "repeat(6, 17%)";
 
                             navEnd.removeChild(document.getElementById('link-btnLogin')); // Remove login button
                             navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
-
                             profilePic.style.display = 'grid';
-
-                            // adding created cart option for navDropdown
-                            // var navDropdownUl = document.getElementById('navDropdownUl');
-                            // navDropdownUl.insertBefore(cartli, navDropdownUl.childNodes[2]);
                         }
                     });
                 });
@@ -95,6 +89,7 @@
                             $I_ID = $_SESSION["item_id"];
                             ?>
                             <img src="../products/<?php echo $I_ID ?>.jpg" width="100%">
+                           
 
                         </div>
                     </th>
@@ -117,13 +112,13 @@
                                 while ($row = mysqli_fetch_assoc($result)) {
 
                                     $I_Name = $row['Item_Name'];
-                                    $I_Des1 = $row['Item_Des1'];
+                                    $I_Des = $row['Item_Des'];
                                     $I_Price = $row['Item_Price'];
                                 } ?>
 
 
-                                <h1>Name: <?php echo $I_ID; ?></h1>
-                                <h4>Price: <?php echo $I_Price; ?></h4>
+                                <h2><?php echo $I_Name; ?></h2>
+                                <h2>Price: <?php echo $I_Price; ?> LKR</h2>
                                 Select Color: <select>
                                     <option>Select Color</option>
                                     <option>Black</option>
@@ -134,18 +129,20 @@
                                 </select><br><br>
 
                                 Quentity : <input id="qut" name="qut" type="number" value="1"><br>
-                                <button class="btnsingle" id="btnAddToCart" onclick="addtocartRequest()">Add to Cart</button>
-
-                                <form action="Pay.php" method="post">
-                                    <button type="submit" class="btnsingle">Buy</button>
-                                </form>
-
                                 <h3>Product Details <i class="fa-solid fa-angle-down"></i></h3>
                                 <div id="des">
                                     <p>
-                                        <?php echo $I_Des1; ?>
+                                        <?php echo $I_Des; ?>
                                     </p>
                                 </div>
+
+                                <button class="btnsingle" id="btnAddToCart" onclick="validate()">Add to Cart</button>
+
+                                
+                                    <button id="btnBuy" onclick="gotocheckout()" class="btnsingle">Buy</button>
+                                
+
+                               
 
                             <?php
                             } else {

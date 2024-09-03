@@ -14,6 +14,12 @@
 function backToHome(){
     window.location.href = "../home.html";
 }
+function gotocheckout(){
+    console.log("check")
+    window.location.href = "Pay.php";
+}
+
+
 
 function addtocartRequest(){
     
@@ -45,6 +51,9 @@ function addtocartRequest(){
         }
     });
 }
+
+
+
 //remove item from cart
 
 function removeCartRequest(){
@@ -76,6 +85,9 @@ function removeCartRequest(){
         }
     });
 }
+
+
+
 //remove all items from cart
 
 function removeCart(){

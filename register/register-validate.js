@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var btnRegister = document.getElementById('register-btn');
     var btnLogin = document.getElementById('login-btn');
     var btnBack = document.getElementById('back-btn');
 
-    btnRegister.addEventListener('click', function(event) { //after login button clicked
+    btnRegister.addEventListener('click', function (event) { //after login button clicked
         event.preventDefault();
 
         var name = document.getElementById('reg-name').value;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     address: address
                 },
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     console.log(response);
                     if (response.status === "success") {
                         window.location.href = "../home.html"; // If login is successful, redirect to home.html
@@ -31,24 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert("Invalid details, please try again.");
                     }
                 },
-                error: function(response) {
+                error: function (response) {
                     console.log(response);
                     alert("Invalid details, please try again.");
                 }
             });
         }
-        else{
+        else {
             alert("Please fill all the fields.");
         }
-        
+
     });
 
-    btnLogin.addEventListener('click', function(event){
+    btnLogin.addEventListener('click', function (event) {
         event.preventDefault();
         window.location.href = "../login/login.html";
     });
 
-    btnBack.addEventListener('click', function(event){
+    btnBack.addEventListener('click', function (event) {
         event.preventDefault();
         window.location.href = "../home.html";
     });

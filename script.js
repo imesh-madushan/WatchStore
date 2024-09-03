@@ -1,5 +1,5 @@
 // This scripts only run after the document is fully loaded
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var navbar = document.getElementById('nav');
     var body = document.getElementById('body');
     var btnDropdown = document.getElementById('btnDropdown');
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var cards = document.getElementsByClassName('card');
     var btnFeedbackPrev = document.getElementById('feedback-prev');
     var btnFeedbackNext = document.getElementById('feedback-next');
-   
+
     var about = document.getElementById('about');
     var ratings = document.getElementById('ratings');
     var services = document.getElementById('services');
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
     checkIfLogged();
 
 
-// ---------------CHECK IF LOGGED----------------
+    // ---------------CHECK IF LOGGED----------------
     // Check if user is logged
-    function checkIfLogged(){
+    function checkIfLogged() {
         $.ajax({
             url: 'login/get-login.php',
             method: 'POST',
@@ -50,31 +50,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 functionName: 'checkCookies'
             },
             dataType: 'json',
-            success: function(response){
-                if(response.status == "success"){
+            success: function (response) {
+                if (response.status == "success") {
                     console.log("User is logged");
                     afterCookiesLogged();
-                    
+
                 }
-                else{
+                else {
                     console.log("User is not logged");
                 }
             },
-            error: function(error){
+            error: function (error) {
                 console.error(error);
             }
         });
     }
 
-    function afterCookiesLogged(){
+    function afterCookiesLogged() {
         var navEnd = document.getElementById('navEnd');
         var navMidOptUl = document.getElementById('navMidOptions');
         var profilePic = document.getElementById('navProfileArea');
 
         // Creating cart navbar option
-        var cartLink = document.createElement('a'); 
+        var cartLink = document.createElement('a');
         var cartli = document.createElement('li');
         cartLink.href = "shopping/Cart.php";
+        cartLink.style.cursor = "pointer";
         cartLink.textContent = "Cart";
         cartli.appendChild(cartLink);
         navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]); // Insert cart link to the navbar
@@ -85,9 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         profilePic.style.display = 'grid';
 
-        // adding created cart option for navDropdown
+        // adding cart option for navDropdown
         var navDropdownUl = document.getElementById('navDropdownUl');
-        navDropdownUl.insertBefore(cartli, navDropdownUl.childNodes[2]);
+        var navDrpcrtli = cartli.cloneNode(true);
+        navDropdownUl.insertBefore(navDrpcrtli, navDropdownUl.childNodes[2]);
     }
 
 
@@ -95,21 +97,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // When resizing the window resize navbar and dropdown menu
-    window.addEventListener('resize', function(){
+    window.addEventListener('resize', function () {
         // If window width is greater than 950 or less than 660, dropdown bar will be hidden
-        if(window.innerWidth >= 1080 || window.innerWidth < 660)
-        {
+        if (window.innerWidth >= 1080 || window.innerWidth < 660) {
             // If dropdown-menu was opened, it will be hidden temporarily
-            if(navDropdownOpened == true)
-            {
+            if (navDropdownOpened == true) {
                 navDropdown.classList.replace('show', 'hide');
             }
         }
-        else
-        {
+        else {
             // If dropdown-menu was opened, it will be shown again
-            if(navDropdownOpened == true)
-            {
+            if (navDropdownOpened == true) {
                 navDropdown.classList.replace('hide', 'show');
             }
         }
@@ -120,29 +118,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // When scrolling the window, 
     // Promo video will stop at top,
     // Left bar will be fixed at the top,
-    window.addEventListener('scroll', function(){
+    window.addEventListener('scroll', function () {
         var navBottom = nav.getBoundingClientRect().bottom;
         var footerTop = footer.getBoundingClientRect().top;
         var footerBottom = footer.getBoundingClientRect().bottom;
-        
+
         // footerTop = leftBar.getBoundingClientRect.bottom + 0.1*window.innerHeight;
         // Set the left bar to be scrolled
-        if (footerTop <= window.innerHeight)
-        {
+        if (footerTop <= window.innerHeight) {
             leftBar.style.position = 'absolute';
-            leftBar.style.alignSelf = 'flex-end'; 
+            leftBar.style.alignSelf = 'flex-end';
             leftBar.style.marginBottom = "24px";
         }
-        else
-        {
+        else {
             // leftBar.style.bottom = 0;
             leftBar.style.position = 'fixed';
-            leftBar.style.alignSelf = 'normal'; 
+            leftBar.style.alignSelf = 'normal';
         }
 
         // IF footer top goes up by crossing the navbar bottom, the promo video will be fixed at the bottom of the navbar
-        if (navBottom >= footerTop)
-        {
+        if (navBottom >= footerTop) {
             promoVideo.style.position = 'fixed';
             promoVideo.style.top = navBottom + "px";
         }
@@ -152,26 +147,25 @@ document.addEventListener("DOMContentLoaded", function() {
             promoVideo.style.top = "auto";
         }
     });
-    
+
 
 
 
     // when click on prev and next button, the slider will be moved
-    function slider()
-    {
+    function slider() {
         // Set the scroller to the beginning
         coursel.scrollLeft = 0;
 
         // Slider effect for feddback section
         var courselWidth = coursel.getBoundingClientRect().width;
         var scrollAmount = parseFloat(courselWidth);
-        btnFeedbackNext.onclick = function(){
+        btnFeedbackNext.onclick = function () {
             console.log("clicked next button");
-            coursel.scrollLeft += scrollAmount; 
+            coursel.scrollLeft += scrollAmount;
         }
-        btnFeedbackPrev.onclick = function(){
+        btnFeedbackPrev.onclick = function () {
             console.log("clicked prev button");
-            coursel.scrollLeft -= scrollAmount;        
+            coursel.scrollLeft -= scrollAmount;
         }
 
     }
@@ -182,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Navigate to the About when click on the navbar
     navAbout.forEach(navAbt => {
-        navAbt.onclick = function(){
-            var scrollAmount = about.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-            console.log("ScrollAmountTo About "+scrollAmount);
+        navAbt.onclick = function () {
+            var scrollAmount = about.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight * 0.065;
+            console.log("ScrollAmountTo About " + scrollAmount);
             scrollBy({
                 top: scrollAmount,
                 behavior: "smooth"
@@ -192,12 +186,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-   
+
     // Navigate to the Ratings when click on the navbar
     navRatings.forEach(navRat => {
-        navRat.onclick = function(){
-            var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-            console.log("ScrollAmountTo Ratings "+scrollAmount);
+        navRat.onclick = function () {
+            var scrollAmount = ratings.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight * 0.065;
+            console.log("ScrollAmountTo Ratings " + scrollAmount);
             scrollBy({
                 top: scrollAmount,
                 behavior: "smooth"
@@ -208,86 +202,80 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Navigate to the Services when click on the navbar
     navServices.forEach(navServ => {
-        navServ.onclick = function(){
-            var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-            console.log("ScrollAmountTo About "+scrollAmount);
-            scrollBy({
-                top: scrollAmount,
-                behavior: "smooth"
-            });
-        }
-    }); 
-    
-
-    // Navigate to the Contact when click on the navbar
-    navContact.forEach(navContact => {
-        navContact.onclick = function(){
-            var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight*0.065;
-            console.log("ScrollAmountTo About "+scrollAmount);
+        navServ.onclick = function () {
+            var scrollAmount = services.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight * 0.065;
+            console.log("ScrollAmountTo About " + scrollAmount);
             scrollBy({
                 top: scrollAmount,
                 behavior: "smooth"
             });
         }
     });
-   
 
 
-    
+    // Navigate to the Contact when click on the navbar
+    navContact.forEach(navContact => {
+        navContact.onclick = function () {
+            var scrollAmount = contact.getBoundingClientRect().top - nav.getBoundingClientRect().bottom - window.innerHeight * 0.065;
+            console.log("ScrollAmountTo About " + scrollAmount);
+            scrollBy({
+                top: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    });
 
-// ---------------MOBILE VIEW Started---------------- *not tested nearly
+
+
+
+
+    // ---------------MOBILE VIEW Started---------------- *not tested nearly
     // Hide the left bar FOR MOBILE VIEW
-    function hideLeftBar(){
-        if(window.innerWidth <= 400)
-        {
+    function hideLeftBar() {
+        if (window.innerWidth <= 400) {
             leftBar.style.display = 'none';
             prodContainer.style.marginLeft = "-100px";
         }
     }
-    function showLeftBar(){
-        if(window.innerWidth <= 400)
-        {
+    function showLeftBar() {
+        if (window.innerWidth <= 400) {
             leftBar.style.display = 'grid';
             prodContainer.style.marginLeft = "-8%";
         }
     }
 
-    
+
 
     // Event listener to listen every click
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         var clickedElement = event.target;
-        
+
         // If the clicked button is not the dropdown button
-        if(clickedElement != btnDropdown)
-        {
-            if(navDropdown.classList.contains('show') == true)
-            {
+        if (clickedElement != btnDropdown) {
+            if (navDropdown.classList.contains('show') == true) {
                 showLeftBar();
                 navDropdown.classList.replace('show', 'hide');
                 navDropdownOpened = false;
             }
         }
-        else
-        {          
+        else {
             btnDropdownClicked = true;
 
             // If dropdown bar is not shown mode or hide mode, dropdown bar will be shown
-            if(navDropdown.classList.contains('show') == false && navDropdown.classList.contains('hide') == false)
-            {
+            if (navDropdown.classList.contains('show') == false && navDropdown.classList.contains('hide') == false) {
                 hideLeftBar();
                 navDropdown.classList.add('show');
                 navDropdownOpened = true;
             }
-            
-            else if(navDropdown.classList.contains('show') == true) // If dropdown bar is shown mode, replace it with hide mode
+
+            else if (navDropdown.classList.contains('show') == true) // If dropdown bar is shown mode, replace it with hide mode
             {
                 showLeftBar();
                 navDropdown.classList.replace('show', 'hide');
                 navDropdownOpened = false;
             }
 
-            else if(navDropdown.classList.contains('hide') == true) //if dropdown bar is hide mode, replace it with show mode
+            else if (navDropdown.classList.contains('hide') == true) //if dropdown bar is hide mode, replace it with show mode
             {
                 hideLeftBar();
                 navDropdown.classList.replace('hide', 'show');
@@ -296,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-// ---------------MOBILE VIEW Ended----------------
+    // ---------------MOBILE VIEW Ended----------------
 
-    
+
 });

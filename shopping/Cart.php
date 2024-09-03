@@ -20,6 +20,7 @@
         <div class="navbar">
             <!--========================================nav bar====================================================!-->
             <nav id="nav"></nav>
+            <div id="navDropDown"></div>
             <script>
                 $(function() {
                     $("#nav").load("../navBarForOthers/navOthers.html #nav", function() {
@@ -71,23 +72,12 @@
             </script>
         </div>
 
-        <div id="navDropdown">
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Ratings</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </div>
-
-
         <!--========================================Cart====================================================!-->
 
         <div class="container">
             <div class="small-contaner cartp-page">
                 <table class="cart-table">
-                    <tr>
+                    <tr class="heads">
                         <th>Number</th>
                         <th>Product</th>
                         <th>Quantity</th>
@@ -121,12 +111,11 @@
                                 <td><?php echo $i ?></td>
                                 <td>
                                     <div class="class-infor">
-                                        <img class="img-cart" src="<?php echo $row1['Img_Link']; ?>">
+                                        <img class="img-cart" src="../products/<?php echo $I_ID ?>.jpg">
                                         <div>
                                             <?php $price = $row1['Item_Price']; ?>
-                                            <p>Name:<?php echo $I_ID; ?></p>
-                                            <small>price: <?php echo $price; ?></small>
-                                            <p><?php echo $row1['Item_Des1']; ?></p>
+                                            <p>Name:<?php echo $row1['Item_Name']; ?></p>
+                                            <p>price: <?php echo $price; ?></p>
                                             <br>
                                             <i class="fa-solid fa-trash"></i>
                                             <button id="remove" value="<?php echo $row['Item_ID']; ?>" onclick="removeCartRequest()">Remove</button>
@@ -181,9 +170,9 @@
                         <td></td>
                         <td>
                             <div class="cart-button">
-                                <form action="Pay.php" method="post">
-                                    <button type="submit">Check Out</button>
-                                </form>
+
+                                <button id="checkoutbtn" onclick="gotocheckout()">Check Out</button>
+
                                 <button id="btnAddToCart" onclick="backToHome()">Back</button>
 
                             </div>

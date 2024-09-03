@@ -47,30 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    function afterCookiesLogged(){
-        var navEnd = document.getElementById('navEnd');
-        var navMidOptUl = document.getElementById('navMidOptions');
-        var profilePic = document.getElementById('navProfileArea');
-
-        // Creating cart navbar option
-        var cartLink = document.createElement('a'); 
-        var cartli = document.createElement('li');
-        cartLink.href = "shopping/Cart.php";
-        cartLink.textContent = "Cart";
-        cartli.appendChild(cartLink);
-        navMidOptUl.insertBefore(cartli, navMidOptUl.childNodes[2]); // Insert cart link to the navbar
-        navMidOptUl.style.gridTemplateColumns = "repeat(6, 17%)";
-
-        navEnd.removeChild(document.getElementById('link-btnLogin'));  // Remove login button
-        navEnd.removeChild(document.getElementById('link-btnRegister')); // Remove register button
-
-        profilePic.style.display = 'grid';
-
-        // adding created cart option for navDropdown
-        var navDropdownUl = document.getElementById('navDropdownUl');
-        navDropdownUl.insertBefore(cartli, navDropdownUl.childNodes[2]);
-    }
-
 
     // When resizing the window resize navbar and dropdown menu
     window.addEventListener('resize', function(){
